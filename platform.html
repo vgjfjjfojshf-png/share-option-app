@@ -7,560 +7,183 @@
 <title>Share Option</title>
 <link rel="manifest" href="/manifest.webmanifest">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-<style id="app-css">@layer properties;@layer theme, base, components, utilities;@layer theme {:root, :host {--font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue","Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol", "Noto Color Emoji";--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;--color-white: #fff;--spacing: 0.25rem;--container-sm: 24rem;--container-md: 28rem;--container-xl: 36rem;--container-2xl: 42rem;--container-3xl: 48rem;--container-6xl: 72rem;--text-xs: 0.75rem;--text-xs--line-height: calc(1 / 0.75);--text-sm: 0.875rem;--text-sm--line-height: calc(1.25 / 0.875);--text-base: 1rem;--text-base--line-height: calc(1.5 / 1);--text-lg: 1.125rem;--text-lg--line-height: calc(1.75 / 1.125);--text-xl: 1.25rem;--text-xl--line-height: calc(1.75 / 1.25);--text-2xl: 1.5rem;--text-2xl--line-height: calc(2 / 1.5);--text-3xl: 1.875rem;--text-3xl--line-height: calc(2.25 / 1.875);--text-4xl: 2.25rem;--text-4xl--line-height: calc(2.5 / 2.25);--text-5xl: 3rem;--text-5xl--line-height: 1;--text-6xl: 3.75rem;--text-6xl--line-height: 1;--text-7xl: 4.5rem;--text-7xl--line-height: 1;--font-weight-semibold: 600;--font-weight-bold: 700;--font-weight-extrabold: 800;--leading-tight: 1.25;--radius-lg: 0.5rem;--default-font-family: var(--font-sans);--default-mono-font-family: var(--font-mono);}}@layer base {*, ::after, ::before, ::backdrop, ::file-selector-button {box-sizing: border-box;margin: 0;padding: 0;border: 0 solid;}html, :host {line-height: 1.5;-webkit-text-size-adjust: 100%;tab-size: 4;font-family: var(--default-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings: var(--default-font-feature-settings, normal);font-variation-settings: var(--default-font-variation-settings, normal);-webkit-tap-highlight-color: transparent;}hr {height: 0;color: inherit;border-top-width: 1px;}abbr:where([title]) {-webkit-text-decoration: underline dotted;text-decoration: underline dotted;}h1, h2, h3, h4, h5, h6 {font-size: inherit;font-weight: inherit;}a {color: inherit;-webkit-text-decoration: inherit;text-decoration: inherit;}b, strong {font-weight: bolder;}code, kbd, samp, pre {font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);font-feature-settings: var(--default-mono-font-feature-settings, normal);font-variation-settings: var(--default-mono-font-variation-settings, normal);font-size: 1em;}small {font-size: 80%;}sub, sup {font-size: 75%;line-height: 0;position: relative;vertical-align: baseline;}sub {bottom: -0.25em;}sup {top: -0.5em;}table {text-indent: 0;border-color: inherit;border-collapse: collapse;}:-moz-focusring:where(:not(iframe)) {outline: auto;}progress {vertical-align: baseline;}summary {display: list-item;}ol, ul, menu {list-style: none;}img, svg, video, canvas, audio, iframe, embed, object {display: block;vertical-align: middle;}img, video {max-width: 100%;height: auto;}button, input, select, optgroup, textarea, ::file-selector-button {font: inherit;font-feature-settings: inherit;font-variation-settings: inherit;letter-spacing: inherit;color: inherit;border-radius: 0;background-color: transparent;opacity: 1;}:where(select:is([multiple], [size])) optgroup {font-weight: bolder;}:where(select:is([multiple], [size])) optgroup option {padding-inline-start: 20px;}::file-selector-button {margin-inline-end: 4px;}::placeholder {opacity: 1;}@supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {::placeholder {color: currentcolor;@supports (color: color-mix(in lab, red, red)) {color: color-mix(in oklab, currentcolor 50%, transparent);}}}textarea {resize: vertical;}::-webkit-search-decoration {-webkit-appearance: none;}::-webkit-date-and-time-value {min-height: 1lh;text-align: inherit;}::-webkit-datetime-edit {display: inline-flex;}::-webkit-datetime-edit-fields-wrapper {padding: 0;}::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {padding-block: 0;}::-webkit-calendar-picker-indicator {line-height: 1;}:-moz-ui-invalid {box-shadow: none;}button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {appearance: button;}::-webkit-inner-spin-button, ::-webkit-outer-spin-button {height: auto;}[hidden]:where(:not([hidden="until-found"])) {display: none !important;}}@layer utilities {.fixed {position: fixed;}.relative {position: relative;}.sticky {position: sticky;}.inset-0 {inset: 0px;}.top-0 {top: 0px;}.right-0 {right: 0px;}.right-4 {right: calc(var(--spacing) * 4);}.bottom-0 {bottom: 0px;}.left-0 {left: 0px;}.z-30 {z-index: 30;}.z-40 {z-index: 40;}.z-50 {z-index: 50;}.mx-auto {margin-inline: auto;}.mt-1 {margin-top: var(--spacing);}.mt-2 {margin-top: calc(var(--spacing) * 2);}.mt-3 {margin-top: calc(var(--spacing) * 3);}.mt-4 {margin-top: calc(var(--spacing) * 4);}.mt-5 {margin-top: calc(var(--spacing) * 5);}.mt-6 {margin-top: calc(var(--spacing) * 6);}.mt-8 {margin-top: calc(var(--spacing) * 8);}.mt-10 {margin-top: calc(var(--spacing) * 10);}.mb-1 {margin-bottom: var(--spacing);}.mb-2 {margin-bottom: calc(var(--spacing) * 2);}.ml-1 {margin-left: var(--spacing);}.ml-auto {margin-left: auto;}.block {display: block;}.flex {display: flex;}.grid {display: grid;}.hidden {display: none;}.table {display: table;}.h-7 {height: calc(var(--spacing) * 7);}.h-8 {height: calc(var(--spacing) * 8);}.h-16 {height: calc(var(--spacing) * 16);}.h-px {height: 1px;}.min-h-\[1\.25rem\] {min-height: 1.25rem;}.min-h-screen {min-height: 100vh;}.\!w-64 {width: calc(var(--spacing) * 64) !important;}.w-7 {width: calc(var(--spacing) * 7);}.w-8 {width: calc(var(--spacing) * 8);}.w-\[min\(94vw\,400px\)\] {width: min(94vw, 400px);}.w-full {width: 100%;}.max-w-2xl {max-width: var(--container-2xl);}.max-w-3xl {max-width: var(--container-3xl);}.max-w-6xl {max-width: var(--container-6xl);}.max-w-md {max-width: var(--container-md);}.max-w-sm {max-width: var(--container-sm);}.max-w-xl {max-width: var(--container-xl);}.flex-1 {flex: 1;}.list-disc {list-style-type: disc;}.grid-cols-2 {grid-template-columns: repeat(2, minmax(0, 1fr));}.grid-cols-3 {grid-template-columns: repeat(3, minmax(0, 1fr));}.flex-col {flex-direction: column;}.flex-wrap {flex-wrap: wrap;}.place-items-center {place-items: center;}.items-center {align-items: center;}.items-end {align-items: flex-end;}.items-start {align-items: flex-start;}.justify-between {justify-content: space-between;}.justify-center {justify-content: center;}.gap-1 {gap: var(--spacing);}.gap-1\.5 {gap: calc(var(--spacing) * 1.5);}.gap-2 {gap: calc(var(--spacing) * 2);}.gap-3 {gap: calc(var(--spacing) * 3);}.gap-4 {gap: calc(var(--spacing) * 4);}.gap-6 {gap: calc(var(--spacing) * 6);}.gap-8 {gap: calc(var(--spacing) * 8);}.gap-12 {gap: calc(var(--spacing) * 12);}:where(.space-y-2 > :not(:last-child)) {--tw-space-y-reverse: 0;margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));}:where(.space-y-3 > :not(:last-child)) {--tw-space-y-reverse: 0;margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));}:where(.space-y-4 > :not(:last-child)) {--tw-space-y-reverse: 0;margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));}:where(.space-y-5 > :not(:last-child)) {--tw-space-y-reverse: 0;margin-block-start: calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse));margin-block-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse)));}:where(.space-y-6 > :not(:last-child)) {--tw-space-y-reverse: 0;margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));}:where(.space-y-8 > :not(:last-child)) {--tw-space-y-reverse: 0;margin-block-start: calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));}.gap-x-6 {column-gap: calc(var(--spacing) * 6);}.gap-y-1 {row-gap: var(--spacing);}.gap-y-2 {row-gap: calc(var(--spacing) * 2);}.overflow-hidden {overflow: hidden;}.overflow-x-auto {overflow-x: auto;}.rounded-lg {border-radius: var(--radius-lg);}.border-t {border-top-style: var(--tw-border-style);border-top-width: 1px;}.p-3 {padding: calc(var(--spacing) * 3);}.p-4 {padding: calc(var(--spacing) * 4);}.p-5 {padding: calc(var(--spacing) * 5);}.p-6 {padding: calc(var(--spacing) * 6);}.p-8 {padding: calc(var(--spacing) * 8);}.p-12 {padding: calc(var(--spacing) * 12);}.\!px-2 {padding-inline: calc(var(--spacing) * 2) !important;}.\!px-3 {padding-inline: calc(var(--spacing) * 3) !important;}.\!px-4 {padding-inline: calc(var(--spacing) * 4) !important;}.\!px-6 {padding-inline: calc(var(--spacing) * 6) !important;}.\!px-7 {padding-inline: calc(var(--spacing) * 7) !important;}.px-4 {padding-inline: calc(var(--spacing) * 4);}.\!py-0\.5 {padding-block: calc(var(--spacing) * 0.5) !important;}.\!py-1\.5 {padding-block: calc(var(--spacing) * 1.5) !important;}.\!py-2 {padding-block: calc(var(--spacing) * 2) !important;}.\!py-3\.5 {padding-block: calc(var(--spacing) * 3.5) !important;}.py-2 {padding-block: calc(var(--spacing) * 2);}.py-4 {padding-block: calc(var(--spacing) * 4);}.py-5 {padding-block: calc(var(--spacing) * 5);}.py-6 {padding-block: calc(var(--spacing) * 6);}.py-8 {padding-block: calc(var(--spacing) * 8);}.py-10 {padding-block: calc(var(--spacing) * 10);}.pt-4 {padding-top: calc(var(--spacing) * 4);}.pt-14 {padding-top: calc(var(--spacing) * 14);}.pb-3 {padding-bottom: calc(var(--spacing) * 3);}.pb-10 {padding-bottom: calc(var(--spacing) * 10);}.pb-14 {padding-bottom: calc(var(--spacing) * 14);}.pb-20 {padding-bottom: calc(var(--spacing) * 20);}.pl-5 {padding-left: calc(var(--spacing) * 5);}.text-center {text-align: center;}.text-left {text-align: left;}.\!text-2xl {font-size: var(--text-2xl) !important;line-height: var(--tw-leading, var(--text-2xl--line-height)) !important;}.text-2xl {font-size: var(--text-2xl);line-height: var(--tw-leading, var(--text-2xl--line-height));}.text-3xl {font-size: var(--text-3xl);line-height: var(--tw-leading, var(--text-3xl--line-height));}.text-4xl {font-size: var(--text-4xl);line-height: var(--tw-leading, var(--text-4xl--line-height));}.text-5xl {font-size: var(--text-5xl);line-height: var(--tw-leading, var(--text-5xl--line-height));}.text-base {font-size: var(--text-base);line-height: var(--tw-leading, var(--text-base--line-height));}.text-lg {font-size: var(--text-lg);line-height: var(--tw-leading, var(--text-lg--line-height));}.text-sm {font-size: var(--text-sm);line-height: var(--tw-leading, var(--text-sm--line-height));}.text-xl {font-size: var(--text-xl);line-height: var(--tw-leading, var(--text-xl--line-height));}.text-xs {font-size: var(--text-xs);line-height: var(--tw-leading, var(--text-xs--line-height));}.leading-\[\.98\] {--tw-leading: .98;line-height: .98;}.leading-none {--tw-leading: 1;line-height: 1;}.leading-tight {--tw-leading: var(--leading-tight);line-height: var(--leading-tight);}.font-bold {--tw-font-weight: var(--font-weight-bold);font-weight: var(--font-weight-bold);}.font-extrabold {--tw-font-weight: var(--font-weight-extrabold);font-weight: var(--font-weight-extrabold);}.font-semibold {--tw-font-weight: var(--font-weight-semibold);font-weight: var(--font-weight-semibold);}.text-white {color: var(--color-white);}.underline {text-decoration-line: underline;}@media (width >= 40rem) {.sm\:flex {display: flex;}.sm\:grid-cols-2 {grid-template-columns: repeat(2, minmax(0, 1fr));}.sm\:grid-cols-3 {grid-template-columns: repeat(3, minmax(0, 1fr));}.sm\:p-10 {padding: calc(var(--spacing) * 10);}.sm\:text-4xl {font-size: var(--text-4xl);line-height: var(--tw-leading, var(--text-4xl--line-height));}.sm\:text-6xl {font-size: var(--text-6xl);line-height: var(--tw-leading, var(--text-6xl--line-height));}}@media (width >= 48rem) {.md\:flex {display: flex;}.md\:grid-cols-2 {grid-template-columns: repeat(2, minmax(0, 1fr));}.md\:grid-cols-3 {grid-template-columns: repeat(3, minmax(0, 1fr));}.md\:grid-cols-4 {grid-template-columns: repeat(4, minmax(0, 1fr));}.md\:grid-cols-6 {grid-template-columns: repeat(6, minmax(0, 1fr));}}@media (width >= 64rem) {.lg\:flex {display: flex;}.lg\:hidden {display: none;}.lg\:grid-cols-2 {grid-template-columns: repeat(2, minmax(0, 1fr));}.lg\:grid-cols-\[1\.1fr_\.9fr\] {grid-template-columns: 1.1fr .9fr;}.lg\:text-7xl {font-size: var(--text-7xl);line-height: var(--tw-leading, var(--text-7xl--line-height));}}}@layer components {:root {--bg: #0c1119;--panel: #151d2b;--line: #243046;--text: #e8eef7;--dim: #8a99b0;--ok: #3fd08a;--gold: #f2b84b;--bad: #ff5c6c;color-scheme: dark;padding-top: env(safe-area-inset-top,0px);}body {margin: 0;background: radial-gradient(800px 400px at 85% -10%,rgba(63,208,138,.08),transparent 60%),var(--bg);color: var(--text);font-family: Manrope,Inter,system-ui,sans-serif;font-variant-numeric: tabular-nums;line-height: 1.5;padding-bottom: calc(5rem + env(safe-area-inset-bottom,0px));}@media (prefers-reduced-motion:reduce) {* {animation: none !important;transition: none !important;}}.glass {background: rgba(12,17,25,.78);backdrop-filter: blur(14px);border-bottom: 1px solid var(--line);}.panel {background: linear-gradient(180deg,var(--panel),#121a28);border: 1px solid var(--line);border-radius: 16px;}.dim {color: var(--dim);}.ok {color: var(--ok);}.bad {color: var(--bad);}.gold {color: var(--gold);}:focus-visible {outline: 2px solid var(--gold);outline-offset: 2px;}.btn {display: inline-flex;align-items: center;justify-content: center;font-weight: 800;border-radius: 11px;padding: .65rem 1.1rem;cursor: pointer;transition: transform .15s,box-shadow .2s;background: var(--gold);color: #1b1405;box-shadow: 0 8px 26px -12px rgba(242,184,75,.8);}.btn:active {transform: scale(.98);}.btn:disabled {background: var(--line);color: var(--dim);box-shadow: none;cursor: not-allowed;}.ghost {background: transparent;color: var(--text);border: 1px solid var(--line);box-shadow: none;}.glow {background: rgba(242,184,75,.07);color: var(--gold);border: 1px solid rgba(242,184,75,.55);box-shadow: 0 0 18px -4px rgba(242,184,75,.45);}input,select {width: 100%;background: var(--bg);border: 1px solid var(--line);border-radius: 11px;padding: .65rem .8rem;color: var(--text);font: inherit;}.dot {width: 9px;height: 9px;border-radius: 99px;background: var(--ok);animation: ping 2s infinite;}@keyframes ping {70% {box-shadow: 0 0 0 8px rgba(63,208,138,0);}0% {box-shadow: 0 0 0 0 rgba(63,208,138,.6);}}.meter {height: 9px;border-radius: 99px;background: var(--bg);border: 1px solid var(--line);overflow: hidden;}.meter i {display: block;height: 100%;transition: width .6s,background .3s;}.tab {padding: .6rem .4rem;border: 1px solid var(--line);border-radius: 11px;text-align: center;font-weight: 700;background: transparent;color: var(--dim);}.tab[aria-selected=true] {border-color: var(--gold);color: var(--text);background: rgba(242,184,75,.1);}.step {display: inline-block;border: 1px solid var(--line);border-radius: 9px;padding: .15rem .6rem;font-weight: 800;}.step.on {border-color: var(--ok);color: var(--ok);background: rgba(63,208,138,.08);}th {font-weight: 600;color: var(--dim);text-align: left;padding: .5rem;font-size: .75rem;}td {padding: .65rem .5rem;border-top: 1px solid var(--line);white-space: nowrap;}dialog {background: transparent;border: 0;padding: 0;margin: auto;color: var(--text);max-width: 100vw;}dialog::backdrop {background: rgba(5,8,13,.8);backdrop-filter: blur(4px);}.sheet {transform: translateY(100%);transition: transform .25s;}.sheet.open {transform: none;}.chip {display: flex;align-items: center;justify-content: center;gap: .4rem;border: 1px solid var(--line);border-radius: 10px;padding: .55rem;cursor: pointer;}.chip:has(input:checked) {border-color: var(--gold);background: rgba(242,184,75,.1);}.chip input {width: auto;accent-color: var(--gold);}.fab {width: 52px;height: 52px;border-radius: 99px;display: grid;place-items: center;position: relative;}.fab .tip {position: absolute;right: 62px;white-space: nowrap;background: var(--panel);border: 1px solid var(--line);padding: .3rem .65rem;border-radius: 9px;font-size: .8rem;opacity: 0;pointer-events: none;transition: opacity .15s;}.fab:hover .tip,.fab:focus-visible .tip {opacity: 1;}.pulse {animation: wa 2.4s infinite;}@keyframes wa {0% {box-shadow: 0 0 0 0 rgba(37,211,102,.55);}70%,100% {box-shadow: 0 0 0 14px rgba(37,211,102,0);}}.prio {border-color: var(--gold) !important;box-shadow: 0 0 0 4px rgba(242,184,75,.12),0 20px 60px -10px rgba(242,184,75,.35);}.pop header,.pop .fabs {display: none;}.bare header {display: none;}.bare {padding-bottom: 0;}.display {font-family: 'Space Grotesk',Manrope,sans-serif;letter-spacing: -.035em;}.gridbg {position: absolute;inset: -40px -20px auto;height: 560px;pointer-events: none;background-image: linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size: 56px 56px;-webkit-mask-image: radial-gradient(60% 70% at 50% 30%,#000 30%,transparent 80%);mask-image: radial-gradient(60% 70% at 50% 30%,#000 30%,transparent 80%);opacity: .35;}.rail li {position: relative;padding-top: 2.6rem;}.node {position: absolute;top: 0;left: 0;width: 1.9rem;height: 1.9rem;border-radius: 99px;border: 1px solid var(--ok);color: var(--ok);display: grid;place-items: center;font-weight: 800;font-size: .8rem;background: var(--bg);z-index: 1;}@media (min-width:768px) {.rail li:not(:last-child)::before {content: "";position: absolute;top: .95rem;left: 2.2rem;right: -1.5rem;height: 1px;background: linear-gradient(90deg,var(--ok),var(--line));}}.ticket {position: relative;overflow: hidden;transition: transform .2s,border-color .2s;}.ticket:hover {transform: translateY(-4px);}.ticket::before {content: "";position: absolute;inset: 0 0 auto;height: 3px;background: var(--tc,var(--line));}.big {font-family: 'Space Grotesk',Manrope,sans-serif;font-weight: 700;letter-spacing: -.04em;line-height: 1;}.fl {position: relative;}.fl input {padding: 1.35rem .9rem .5rem;}.fl label {position: absolute;left: .9rem;top: .92rem;color: var(--dim);pointer-events: none;transition: all .15s;font-size: .95rem;}.fl input:focus+label,.fl input:not(:placeholder-shown)+label {top: .38rem;font-size: .7rem;}.fl input:focus {border-color: var(--gold);}.bk {transition: border-color .2s,transform .2s;}.bk:hover,a.panel:hover {border-color: var(--gold);}.bk[aria-pressed=true] {border-color: var(--gold);background: rgba(242,184,75,.08);}details.panel summary {cursor: pointer;font-weight: 700;list-style: none;}details.panel summary::-webkit-details-marker {display: none;}details.panel[open] summary {margin-bottom: .5rem;}[hidden] {display: none !important;}}@property --tw-space-y-reverse {syntax: "*";inherits: false;initial-value: 0;}@property --tw-border-style {syntax: "*";inherits: false;initial-value: solid;}@property --tw-leading {syntax: "*";inherits: false;}@property --tw-font-weight {syntax: "*";inherits: false;}@keyframes ping {75%, 100% {transform: scale(2);opacity: 0;}}@layer properties {@supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {*, ::before, ::after, ::backdrop {--tw-space-y-reverse: 0;--tw-border-style: solid;--tw-leading: initial;--tw-font-weight: initial;}}}</style>
+<style id="app-css">
+@layer properties;@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue","Noto Sans", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --color-white: #fff;--spacing: 0.25rem;--container-sm: 24rem;--container-md: 28rem;--container-xl: 36rem;--container-2xl: 42rem;--container-3xl: 48rem;--container-6xl: 72rem;
+    --text-xs: 0.75rem;--text-sm: 0.875rem;--text-base: 1rem;--text-lg: 1.125rem;--text-xl: 1.25rem;--text-2xl: 1.5rem;--text-3xl: 1.875rem;--text-4xl: 2.25rem;--text-5xl: 3rem;--text-6xl: 3.75rem;--text-7xl: 4.5rem;
+    --font-weight-semibold: 600;--font-weight-bold: 700;--font-weight-extrabold: 800;--leading-tight: 1.25;--radius-lg: 0.5rem;
+  }
+}
+@layer base {
+  *, ::after, ::before { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+  html, body { background: #0c1119; color: #e8eef7; font-family: 'Manrope', sans-serif; }
+  a { color: inherit; text-decoration: inherit; }
+  button, input, select { font: inherit; color: inherit; background: transparent; }
+}
+@layer components {
+  :root { --bg: #0c1119; --panel: #151d2b; --line: #243046; --text: #e8eef7; --dim: #8a99b0; --ok: #3fd08a; --gold: #f2b84b; --bad: #ff5c6c; }
+  .glass { background: rgba(12,17,25,.78); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .panel { background: linear-gradient(180deg,var(--panel),#121a28); border: 1px solid var(--line); border-radius: 16px; }
+  .dim { color: var(--dim); } .ok { color: var(--ok); } .bad { color: var(--bad); } .gold { color: var(--gold); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 11px; padding: .65rem 1.1rem; cursor: pointer; background: var(--gold); color: #1b1405; border: none; }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn.glow { background: rgba(242,184,75,.07); color: var(--gold); border: 1px solid rgba(242,184,75,.55); }
+  input, select { width: 100%; background: var(--bg); border: 1px solid var(--line); border-radius: 11px; padding: .65rem .8rem; color: var(--text); }
+  .fl { position: relative; margin-bottom: 1rem; }
+  .fl input { padding: 1.25rem .9rem .4rem; }
+  .fl label { position: absolute; left: .9rem; top: .85rem; color: var(--dim); pointer-events: none; transition: all .15s; font-size: .85rem; }
+  .fl input:focus + label, .fl input:not(:placeholder-shown) + label { top: .3rem; font-size: .65rem; color: var(--gold); }
+}
+</style>
 </head>
 <body>
-<header class="glass sticky top-0 z-40" style="top:env(safe-area-inset-top,0px)">
-  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
-    <a href="#/home" class="flex items-center gap-2 font-extrabold text-lg"><span class="grid place-items-center w-8 h-8 rounded-lg" style="background:var(--gold);color:#1b1405">S</span>Share Option
-      <span class="hidden sm:flex items-center gap-1.5 text-xs dim font-semibold ml-1"><span id="dot" class="dot"></span><span id="lat">connecting…</span></span></a>
-    <nav class="hidden md:flex gap-6 text-sm font-semibold dim" aria-label="Primary">
-      <a href="#/home" data-go="features">Features</a><a href="#/home" data-go="plans">Plans</a><a href="#/home" data-go="brokers">Brokers</a><a href="#/home" data-go="faq">FAQ</a></nav>
-    <div class="flex gap-2"><a id="navApp" href="#/app" class="btn glow !py-2 !px-4 text-sm">Launch App / Login</a><button id="navOut" class="btn ghost !py-2 !px-3 text-sm" hidden>Sign out</button></div>
-  </div>
-  <div id="userbar" class="max-w-6xl mx-auto px-4 pb-3" hidden>
-    <div class="flex items-center gap-4"><div><div class="text-xs dim">Wallet balance</div><div id="bal" class="font-extrabold text-xl">$0.00</div></div>
-      <button id="meterBtn" class="flex-1 text-left" aria-label="Open invoice"><div class="flex justify-between text-xs mb-1"><span class="dim">Unpaid fees vs $50 limit</span><b id="meterTxt">$0.00 of $50.00</b></div><div class="meter"><i id="meterFill" style="width:0"></i></div></button></div>
+
+<header class="glass sticky top-0 z-40" style="padding: 0.8rem 1rem;">
+  <div style="max-width: 1150px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+    <a href="#/" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.1rem;">
+      <span style="background:var(--gold); color:#1b1405; width:32px; height:32px; display:grid; place-items:center; border-radius:8px;">S</span>
+      Share Option
+    </a>
+    <div style="display: flex; gap: 0.5rem;">
+      <button onclick="showAuthModal('login')" class="btn ghost" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Sign in</button>
+      <button onclick="showAuthModal('register')" class="btn glow" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Create account</button>
+    </div>
   </div>
 </header>
-<div id="offline" hidden class="text-center text-sm py-2 px-4" style="background:rgba(255,92,108,.12);color:var(--bad)" role="status">Can’t reach the Share Option server. Check your connection, or open the live site.</div>
 
-<!-- ───────── HOME ───────── -->
-<main id="v-home" class="max-w-6xl mx-auto px-4">
-  <section class="relative pt-14 pb-20 grid lg:grid-cols-[1.1fr_.9fr] gap-12 items-center">
-    <div class="gridbg" aria-hidden="true"></div>
-    <div class="relative">
-      <h1 class="display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[.98]">Signals straight to your broker.<span class="block dim mt-2">Fees only after you withdraw.</span></h1>
-      <p class="mt-6 text-lg dim max-w-xl">Our VIP Telegram channel is read live and routed to your Pocket Option, Quotex or IQ Option account with the entry size your plan calls for. Nothing upfront, and a $50 safeguard pauses signals if fees go unpaid.</p>
-      <div class="mt-8 flex flex-wrap gap-3"><button class="btn text-base !px-6 !py-3.5" data-auth="register">Create free account</button><button class="btn ghost text-base !px-6 !py-3.5" data-auth="login">Sign in</button></div>
-      <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm dim"><li><b class="ok">$0</b> upfront</li><li><b class="gold">$50</b> debt safeguard</li><li><b class="text-white">Verified</b> accounts only</li></ul>
-    </div>
-    <div class="relative panel p-6" style="box-shadow:0 30px 80px -30px rgba(63,208,138,.25)">
-      <h2 class="display text-xl font-bold">Your entry size, calculated</h2>
-      <label for="cap" class="text-xs dim block mt-4">Trading capital (USD)</label>
-      <input id="cap" type="number" min="10" step="10" value="1000" inputmode="decimal" class="mt-1 !text-2xl font-bold" aria-describedby="capNote">
-      <div class="mt-5 space-y-4 text-sm">
-        <div><div class="flex justify-between"><span class="dim">🛡️ Passive · 5–10% per trade</span><span class="dim">fee 20%</span></div><div id="oP" class="big text-3xl mt-1 ok"></div></div>
-        <div><div class="flex justify-between"><span class="dim">🚀 Compounding · 10% → 20% → 30%</span><span class="dim">fee 40%</span></div><div id="oC" class="flex flex-wrap items-center gap-2 mt-2 font-extrabold"></div><div class="text-xs dim mt-1">then back to 10% of your balance; any loss resets it</div></div>
+<div id="alertBox" style="display:none; text-align:center; padding:0.6rem; background:rgba(255,92,108,.15); color:var(--bad); font-size:0.85rem;"></div>
+
+<main style="max-width: 1150px; margin: 0 auto; padding: 3rem 1rem;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: center;">
+    <div>
+      <h1 style="font-size: 2.8rem; font-weight: 800; line-height: 1.1;">Your signals, your broker, your rules.</h1>
+      <p style="color: var(--dim); margin-top: 1rem; font-size: 1.05rem;">
+        Signals straight to your Pocket Option, Quotex, or IQ Option account. Fees are charged only on realized profit after withdrawal.
+      </p>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <button onclick="showAuthModal('register')" class="btn" style="padding: 0.8rem 1.5rem;">Create free account</button>
+        <button onclick="showAuthModal('login')" class="btn ghost" style="padding: 0.8rem 1.5rem;">Sign in</button>
       </div>
-      <p id="capNote" class="text-xs dim mt-5">Sizing illustration from the number you enter. It is not a forecast: you can lose your whole stake on every trade.</p>
     </div>
-  </section>
 
-  <section id="features" class="pb-20">
-    <h2 class="display text-3xl sm:text-4xl font-bold max-w-2xl">From a Telegram post to a trade on your screen</h2>
-    <ol class="rail mt-10 grid md:grid-cols-4 gap-8 text-sm">
-      <li><span class="node">1</span><b>VIP Telegram channel</b><p class="dim mt-1">Every message is read the moment it is posted.</p></li>
-      <li><span class="node">2</span><b>Signal parsed</b><p class="dim mt-1">Pair, direction, expiry and entry time are extracted automatically.</p></li>
-      <li><span class="node">3</span><b>Safeguard check</b><p class="dim mt-1">Only verified accounts under the $50 fee limit receive it.</p></li>
-      <li><span class="node">4</span><b>Your broker</b><p class="dim mt-1">Copy trade ID on Pocket Option, live popup on Quotex and IQ Option.</p></li>
-    </ol>
-    <div class="mt-10 grid md:grid-cols-4 gap-4 text-sm">
-      <div class="panel p-5"><b>Fees after withdrawal</b><p class="dim mt-2">No subscription. Commission is charged on realised profit only.</p></div>
-      <div class="panel p-5"><b>$50 safeguard</b><p class="dim mt-2">Unpaid fees hit $50 and signals pause until you settle in USDT.</p></div>
-      <div class="panel p-5"><b>Loss credit</b><p class="dim mt-2">A share of verified losses offsets what you owe.</p></div>
-      <div class="panel p-5"><b>Verified accounts</b><p class="dim mt-2">Signals unlock once your broker account is verified.</p></div>
+    <!-- Auth Form Container -->
+    <div id="authContainer" class="panel" style="padding: 2rem;">
+      <h2 id="authTitle" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Create your account</h2>
+      
+      <form id="authForm" onsubmit="handleAuthSubmit(event)">
+        <div id="nameField" class="fl">
+          <input type="text" id="fullName" placeholder=" " />
+          <label for="fullName">Full name</label>
+        </div>
+
+        <div class="fl">
+          <input type="email" id="email" required placeholder=" " />
+          <label for="email">Email address</label>
+        </div>
+
+        <div class="fl">
+          <input type="password" id="password" required placeholder=" " />
+          <label for="password">Password (8+ characters)</label>
+        </div>
+
+        <div id="authError" style="color: var(--bad); font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
+
+        <button type="submit" id="submitBtn" class="btn" style="width: 100%; padding: 0.8rem; font-size: 1rem;">Create account</button>
+      </form>
+
+      <div style="margin-top: 1.2rem; text-align: center; font-size: 0.85rem; color: var(--dim);">
+        <span id="authSwitchText">Already have an account?</span>
+        <a href="#" id="authSwitchLink" onclick="toggleAuthMode(event)" style="color: var(--gold); font-weight: 700; margin-left: 0.3rem;">Sign in</a>
+      </div>
     </div>
-  </section>
-
-  <section id="plans" class="pb-20">
-    <h2 class="display text-3xl sm:text-4xl font-bold">Pick how your capital works</h2>
-    <p class="dim mt-2">Open a plan to see the details, choose your broker and register.</p>
-    <div class="mt-8 grid md:grid-cols-3 gap-4">
-      <a href="#/plan/passive" class="ticket panel p-6 block" style="--tc:var(--ok)"><div class="flex justify-between text-sm"><b>🛡️ Passive</b><span class="dim">low, steady</span></div>
-        <div class="big text-5xl mt-6">5–10%</div><div class="dim text-sm mt-1">of capital per trade, your choice</div>
-        <div class="mt-5 pt-4 flex justify-between items-end text-sm" style="border-top:1px solid var(--line)"><span class="dim">Platform fee</span><span class="big text-3xl">20%</span></div>
-        <p class="gold font-bold text-sm mt-5">See how it works →</p></a>
-      <a href="#/plan/compounding" class="ticket panel p-6 block" style="--tc:var(--gold)"><div class="flex justify-between text-sm"><b>🚀 Compounding</b><span class="dim">faster, riskier</span></div>
-        <div class="big text-5xl mt-6">10→30%</div><div class="dim text-sm mt-1">stake climbs with each win, then resets to 10%</div>
-        <div class="mt-5 pt-4 flex justify-between items-end text-sm" style="border-top:1px solid var(--line)"><span class="dim">Platform fee</span><span class="big text-3xl">40%</span></div>
-        <p class="gold font-bold text-sm mt-5">See how it works →</p></a>
-      <a href="#/plan/power" class="ticket panel p-6 block" style="--tc:#e8eef7"><div class="flex justify-between text-sm"><b>⚡ Power Share</b><span class="dim">by invitation</span></div>
-        <div class="big text-5xl mt-6">Pool</div><div class="dim text-sm mt-1">own a live share % of one managed master balance</div>
-        <div class="mt-5 pt-4 flex justify-between items-end text-sm" style="border-top:1px solid var(--line)"><span class="dim">Platform fee</span><span class="big text-3xl">30%</span></div>
-        <p class="gold font-bold text-sm mt-5">See how it works →</p></a>
-    </div>
-  </section>
-
-  <section id="brokers" class="pb-20">
-    <h2 class="display text-3xl sm:text-4xl font-bold">Two ways to execute, one dashboard</h2>
-    <div class="mt-8 grid md:grid-cols-2 gap-4">
-      <div class="panel p-6"><span class="text-xs font-bold ok">AUTOMATED</span>
-        <div class="flex items-center gap-3 mt-3"><img src="/static/brokers/pocket-option.svg" alt="" width="48" height="48" class="rounded-lg"><h3 class="display text-2xl font-bold">Pocket Option</h3></div>
-        <p class="dim text-sm mt-3">Copy our master trade ID in one click. Your stake is matched to your plan and balance, so a signal turns into a copy trade without retyping anything.</p>
-        <a data-reg="POCKET_OPTION" href="#/plan/passive" target="_blank" rel="noopener sponsored" class="btn mt-4">Register at Pocket Option</a></div>
-      <div class="panel p-6"><span class="text-xs font-bold gold">SEMI-AUTOMATED</span>
-        <div class="flex items-center gap-3 mt-3"><img src="/static/brokers/quotex.svg" alt="" width="48" height="48" class="rounded-lg"><img src="/static/brokers/iq-option.svg" alt="" width="48" height="48" class="rounded-lg"><h3 class="display text-2xl font-bold">Quotex, IQ Option & others</h3></div>
-        <p class="dim text-sm mt-3">A live signal window pops up with the pair, direction, countdown and your calculated stake. You tap Execute, with a shortcut to your broker terminal.</p>
-        <div class="flex flex-wrap gap-2 mt-4"><a data-reg="QUOTEX" href="#/plan/passive" target="_blank" rel="noopener sponsored" class="btn">Register at Quotex</a><a data-reg="IQ_OPTION" href="#/plan/passive" target="_blank" rel="noopener sponsored" class="btn ghost">Register at IQ Option</a></div></div>
-    </div>
-    <p class="text-xs dim mt-3">Broker names are trademarks of their owners; Share Option is independent and not endorsed by them.</p>
-    <div class="panel p-8 mt-10 text-center" style="background:linear-gradient(180deg,rgba(242,184,75,.08),var(--panel))"><h3 class="display text-3xl font-bold">Ready when you are</h3><p class="dim mt-2">Create your account, link your broker, and signals unlock after verification.</p><button class="btn mt-5 !px-7 !py-3.5 text-base" data-auth="register">Create free account</button></div>
-  </section>
-
-  <section id="faq" class="pb-14 max-w-3xl"><h2 class="text-3xl font-extrabold">How it all works</h2>
-    <div class="mt-6 space-y-3 text-sm">
-      <details class="panel p-4"><summary>How do I get started?</summary><p class="dim">Create an account with Google, your email or your phone number. Then pick a plan, choose your broker, register there through our link and submit your broker account ID.</p></details>
-      <details class="panel p-4"><summary>Why are my signals locked?</summary><p class="dim">Signals stay locked until an admin verifies your broker account. We check that the ID you submitted is real and registered through our link. You’ll see the status (pending, verified or rejected) on your plan page and dashboard.</p></details>
-      <details class="panel p-4"><summary>Automated or semi-automated: what’s the difference?</summary><p class="dim">On Pocket Option you copy our master trade ID in one click, and your stake is matched to your plan. On Quotex, IQ Option and other brokers, a live signal window pops up with the pair, direction, countdown and your stake, and you tap Execute yourself.</p></details>
-      <details class="panel p-4"><summary>How do the plans size my entry?</summary><p class="dim">Passive uses a fixed 5–10% of your capital, your choice. Compounding steps 10% → 20% → 30% of your current balance after each win, then returns to 10%, and any loss resets it to 10%. The amount is calculated for you.</p></details>
-      <details class="panel p-4"><summary>When do I pay, and how much?</summary><p class="dim">Only on profit, and only after you withdraw: 20% on Passive, 40% on Compounding, 30% on Power Share. There is no subscription and nothing upfront. You pay in USDT on the TRON (TRC-20) network from your dashboard.</p></details>
-      <details class="panel p-4"><summary>What is the $50 limit?</summary><p class="dim">If unpaid fees reach $50, your account is suspended and signals stop until you pay. Paying brings you back under the limit and signals resume.</p></details>
-      <details class="panel p-4"><summary>What is loss credit?</summary><p class="dim">A share of your verified losses, equal to your plan’s fee rate, is credited against fees you owe.</p></details>
-      <details class="panel p-4"><summary>Real versus demo accounts?</summary><p class="dim">Fees apply to profit on real accounts. Demo trades carry no commission.</p></details>
-      <details class="panel p-4"><summary>What is Power Share?</summary><p class="dim">A managed pool by invitation. You own a share percentage of one master balance and your value moves with it.</p></details>
-      <details class="panel p-4"><summary>What are the risks?</summary><p class="dim">Binary options are high risk and you can lose your entire stake on every trade. Only trade money you can afford to lose. They are restricted or banned in some countries, so check your local rules.</p></details>
-    </div></section>
-  <footer class="text-xs dim pb-10"><a href="#/legal" class="gold underline">Terms, Privacy &amp; Risk Disclosure</a><br>Trading binary options involves substantial risk and is restricted or banned in some countries. Nothing here is financial advice.</footer>
+  </div>
 </main>
-
-<!-- ───────── CLIENT APP ───────── -->
-<main id="v-app" class="max-w-6xl mx-auto px-4 py-5 space-y-4" hidden>
-  <div id="gate" class="panel p-4" hidden></div>
-  <div role="tablist" aria-label="Plan" class="grid grid-cols-3 gap-2" id="tabs">
-    <button class="tab" role="tab" data-t="PASSIVE">Passive</button><button class="tab" role="tab" data-t="COMPOUNDING">Compounding</button><button class="tab" role="tab" data-t="POWER_POOL">Power Share</button></div>
-  <section class="panel p-5" id="planPanel" role="tabpanel"></section>
-  <section><div class="flex justify-between items-center mb-2"><h2 class="text-sm font-semibold dim">Live signals from the VIP channel</h2><div class="flex gap-4"><button id="openWin" class="text-xs font-bold gold underline">Open live signal window</button><button id="notif" class="text-xs underline dim">Enable alerts</button></div></div>
-    <div class="panel overflow-x-auto"><table class="w-full text-sm"><thead><tr><th>Pair</th><th>Side</th><th>Entry</th><th>Expires</th><th>Stake</th><th></th></tr></thead><tbody id="rows"></tbody></table></div></section>
-</main>
-
-<!-- ───────── LEGAL ───────── -->
-<main id="v-legal" class="max-w-3xl mx-auto px-4 py-10 space-y-8 text-sm" hidden>
-  <a href="#/home" class="dim">← Back to home</a>
-  <h1 class="display text-4xl font-bold">Terms, Privacy &amp; Risk Disclosure</h1>
-  <section><h2 class="display text-2xl font-bold">Risk disclosure</h2><p class="dim mt-2">Trading binary options is highly speculative. You can lose your entire stake on every trade, and results are never guaranteed. Past signals do not predict future results. Share Option provides trading signals and tools; it is not financial, investment or legal advice, and does not manage your broker account (except the Power Share pool). Binary options are restricted or prohibited in some countries: you are responsible for checking that using them and this service is lawful where you live. Only trade money you can afford to lose.</p></section>
-  <section><h2 class="display text-2xl font-bold">Terms of service</h2><ul class="dim mt-2 space-y-2 list-disc pl-5">
-    <li>You must be at least 18 and legally allowed to trade binary options in your country.</li>
-    <li>Signals are delivered only to accounts whose broker account has been verified by an administrator, and only while the account is active.</li>
-    <li>There is no upfront or subscription fee. A platform commission applies to realised profit on real accounts: 20% on Passive, 40% on Compounding and 30% on Power Share, collected after you withdraw. Demo accounts carry no commission. A share of verified losses (equal to your plan’s rate) is credited against fees you owe.</li>
-    <li>If unpaid fees reach $50, your account is suspended and signals stop until you pay. Fees are paid in USDT on the TRON (TRC-20) network.</li>
-    <li>Entry sizes shown are calculated from the balance you report. You are responsible for keeping it accurate and for every trade you place with your broker.</li>
-    <li>We may suspend or close accounts that provide false information, abuse the service, or break the law or a broker’s rules.</li>
-    <li>The service is provided “as is” without guarantees of availability or profit. To the extent the law allows, we are not liable for trading losses.</li></ul></section>
-  <section><h2 class="display text-2xl font-bold">Privacy</h2><p class="dim mt-2">We collect your name, email or phone number (or Google account email), your password (stored only as a salted hash), your broker and broker account ID, the capital you report, your plan, trades placed through the platform, and fee payments. We use it to run your account, verify your broker account, calculate fees and keep the service secure. We do not sell your data. Your session is kept in a secure cookie. Contact support through the WhatsApp or Telegram links on the site to request access to or deletion of your data.</p></section>
-</main>
-
-<!-- ───────── LOGIN / SIGN UP PAGE ───────── -->
-<main id="v-login" class="min-h-screen grid lg:grid-cols-2" hidden>
-  <aside class="hidden lg:flex relative flex-col justify-between p-12 overflow-hidden" style="background:#0a0f17;border-right:1px solid var(--line)">
-    <div class="gridbg" aria-hidden="true" style="inset:0;height:100%"></div>
-    <a href="#/home" class="relative flex items-center gap-2 font-extrabold text-lg"><span class="grid place-items-center w-8 h-8 rounded-lg" style="background:var(--gold);color:#1b1405">S</span>Share Option</a>
-    <div class="relative max-w-md"><h2 class="display text-4xl font-bold leading-tight">Your signals, your broker, your rules.</h2>
-      <ul class="mt-8 space-y-5 text-sm">
-        <li class="flex gap-3"><span class="ok font-bold">✓</span><div><b>Nothing upfront</b><div class="dim">You pay a share of realised profit, only after you withdraw.</div></div></li>
-        <li class="flex gap-3"><span class="ok font-bold">✓</span><div><b>A $50 safeguard</b><div class="dim">Signals pause if fees go unpaid, so debt never runs away.</div></div></li>
-        <li class="flex gap-3"><span class="ok font-bold">✓</span><div><b>Entry sizes calculated for you</b><div class="dim">Based on your plan and your current balance.</div></div></li></ul></div>
-    <p class="relative text-xs dim max-w-sm">Binary options carry a high risk of loss. You can lose your entire stake.</p>
-  </aside>
-  <section class="flex items-center justify-center p-5 sm:p-10"><div class="w-full max-w-sm">
-    <div class="flex justify-between items-center"><a href="#/home" class="lg:hidden flex items-center gap-2 font-extrabold"><span class="grid place-items-center w-7 h-7 rounded-lg" style="background:var(--gold);color:#1b1405">S</span>Share Option</a><a href="#/home" class="text-sm dim ml-auto">← Back to home</a></div>
-    <h1 id="lgTitle" class="display text-3xl font-bold mt-8">Welcome back</h1><p id="lgSub" class="dim text-sm mt-1">Sign in to your dashboard.</p>
-    <div id="gWrap" hidden class="mt-6"><div id="gBtn" class="flex justify-center"></div><div class="flex items-center gap-3 mt-4 text-xs dim"><i class="flex-1 h-px" style="background:var(--line)"></i>or<i class="flex-1 h-px" style="background:var(--line)"></i></div></div>
-    <div role="tablist" class="grid grid-cols-2 gap-2 mt-6"><button class="tab" role="tab" id="atL" aria-selected="true">Sign in</button><button class="tab" role="tab" id="atR" aria-selected="false">Create account</button></div>
-    <form id="fL" class="mt-5 space-y-3"><div class="fl"><input id="lId" placeholder=" " autocomplete="username"><label for="lId">Email or phone (+country code)</label></div><div class="fl"><input id="lPw" type="password" placeholder=" " autocomplete="current-password"><label for="lPw">Password</label></div><button class="btn w-full !py-3.5">Sign in</button></form>
-    <form id="fR" class="mt-5 space-y-3" hidden><div class="fl"><input id="rName" placeholder=" " autocomplete="name"><label for="rName">Full name</label></div>
-      <div class="grid grid-cols-2 gap-2"><label class="chip"><input type="radio" name="rid" value="email" checked>Email</label><label class="chip"><input type="radio" name="rid" value="phone">Phone</label></div>
-      <div class="fl"><input id="rId" type="email" placeholder=" " autocomplete="email"><label id="rIdL" for="rId">Email address</label></div><div class="fl"><input id="rPw" type="password" placeholder=" " autocomplete="new-password"><label for="rPw">Password (8+ characters)</label></div><label class="flex gap-2 text-xs dim items-start"><input type="checkbox" id="rTerms" style="width:auto;margin-top:.15rem;accent-color:var(--gold)"><span>I am 18 or older and accept the <a href="#/legal" target="_blank" class="gold underline">Terms, Privacy Policy and Risk Disclosure</a>.</span></label><button class="btn w-full !py-3.5">Create account</button></form>
-    <p id="authErr" class="bad text-sm mt-4 min-h-[1.25rem]" role="alert"></p>
-  </div></section>
-</main>
-
-<!-- ───────── PLAN PAGE ───────── -->
-<main id="v-plan" class="max-w-3xl mx-auto px-4 py-8 space-y-6" hidden>
-  <a href="#/home" data-go="plans" class="text-sm dim">← All plans</a>
-  <section class="panel p-6" id="ppHead"></section>
-  <section id="ppExec" class="grid sm:grid-cols-2 gap-3 text-sm">
-    <div class="panel p-5"><b class="ok">Automated · Pocket Option</b><p class="dim mt-2">Copy our master trade ID in one click. Your stake is matched to your plan and balance, so a signal becomes a copy trade without retyping anything.</p></div>
-    <div class="panel p-5"><b class="gold">Semi-automated · Quotex, IQ Option & others</b><p class="dim mt-2">A live signal window pops up with the pair, direction, countdown and your calculated stake. You tap Execute, with a shortcut to your broker terminal.</p></div>
-  </section>
-  <section id="ppBrokerSec"><h2 class="text-xl font-extrabold">1. Choose your broker</h2><p class="text-sm dim mt-1">Clicking a broker opens its registration in a new window. Register there, then come back here.</p><div id="ppBrokers" class="grid sm:grid-cols-3 gap-3 mt-3"></div></section>
-  <section id="ppForm" class="panel p-6" hidden>
-    <h2 id="ppFormT" class="text-xl font-extrabold"></h2>
-    <div class="grid sm:grid-cols-2 gap-3 mt-4"><input id="ppUid" placeholder="Broker account ID (UID)" aria-label="Broker account ID" autocomplete="off"><input id="ppCap" type="number" min="10" step="0.01" placeholder="Your trading capital (USD)" aria-label="Trading capital"></div>
-    <div class="grid grid-cols-2 gap-2 mt-3"><label class="chip"><input type="radio" name="ppType" value="REAL" checked>Real account</label><label class="chip"><input type="radio" name="ppType" value="DEMO">Demo account</label></div>
-    <div id="ppStakeBox" class="mt-3" hidden><label for="ppRange" class="text-sm">Stake per trade: <b id="ppVal" class="gold">5%</b></label><input id="ppRange" type="range" min="5" max="10" step="1" value="5" style="padding:0;accent-color:var(--gold)"></div>
-    <p class="text-xs dim mt-3">After you submit, an admin verifies your broker account. Your signals stay locked until it is verified. Fees apply to profit on real accounts only.</p>
-    <div class="flex flex-wrap gap-2 mt-4"><a id="ppOpen" class="btn ghost" target="_blank" rel="noopener sponsored">Open broker registration</a><button id="ppGo" class="btn flex-1">Submit for verification</button></div><p id="ppErr" class="text-xs bad mt-2" role="alert"></p>
-  </section>
-  <section id="ppStatus" class="panel p-5" hidden></section>
-  <section id="ppPool" class="panel p-6" hidden><h2 class="text-xl font-extrabold">Power Share is by invitation</h2><p class="dim text-sm mt-2">The pool is managed centrally. Contact support to request an allocation. Once you hold a share, you can switch to this plan from your dashboard and your value follows the master balance.</p>
-    <div class="flex flex-wrap gap-2 mt-4"><a id="pwWa" class="btn" target="_blank" rel="noopener">WhatsApp support</a><a id="pwTg" class="btn ghost" target="_blank" rel="noopener">Telegram channel</a></div></section>
-</main>
-
-<!-- ───────── ADMIN ───────── -->
-<main id="v-admin" class="max-w-6xl mx-auto px-4 py-5 space-y-4" hidden>
-  <div class="flex gap-2 flex-wrap items-center"><input id="aSecret" type="password" placeholder="Admin secret" aria-label="Admin secret" class="!w-64"><button id="aLoad" class="btn">Load clients</button><span id="aMsg" class="text-sm dim" role="status"></span></div>
-  <div id="aCards" class="grid grid-cols-2 md:grid-cols-6 gap-3"></div>
-  <section class="panel p-5"><div class="flex flex-wrap justify-between items-center gap-2"><h2 class="display text-xl font-bold">Site settings</h2><span id="sStatus" class="text-xs dim"></span></div>
-    <ul id="sChecks" class="mt-3 grid sm:grid-cols-2 gap-x-6 gap-y-1 text-sm"></ul><div id="sForm" class="mt-4 grid sm:grid-cols-2 gap-3"></div>
-    <button id="sSave" class="btn mt-4">Save settings</button><p id="sMsg" class="text-xs mt-2" role="status"></p></section>
-  <div class="panel overflow-x-auto"><table class="w-full text-sm" style="min-width:880px"><thead><tr><th>Client</th><th>Plan</th><th>Broker account</th><th>Type</th><th>Verification</th><th>Accrued</th><th>Collected</th><th>Credited</th><th>Owed</th><th>Status</th></tr></thead><tbody id="aRows"></tbody></table></div>
-</main>
-
-<!-- ───────── POP-OUT LIVE SIGNAL WINDOW ───────── -->
-<main id="v-signal" class="max-w-md mx-auto px-4 py-4" hidden>
-  <div class="flex items-center justify-between text-xs dim"><span class="flex items-center gap-2"><span class="dot"></span><span id="swBroker">Live signal window</span></span><button id="swSound" class="underline">Enable sound</button></div>
-  <div id="swCard" class="panel p-6 mt-3 text-center" aria-live="assertive"></div>
-  <p id="swMsg" class="text-xs bad mt-2" role="alert"></p>
-  <p class="text-xs dim mt-3 text-center">Keep this window open beside your broker. Each new signal appears here the moment it arrives.</p>
-</main>
-
-<!-- floating support -->
-<div class="fabs fixed right-4 z-30 flex flex-col gap-3" style="bottom:calc(1.25rem + env(safe-area-inset-bottom,0px))">
-  <a id="wa" class="fab pulse" style="background:#25d366" target="_blank" rel="noopener" aria-label="Chat with Support on WhatsApp"><span class="tip" role="tooltip">Chat with Support</span><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm4.700 13.800c-.2.600-1.200 1.100-1.700 1.200-.4.100-1 .1-1.600-.1-.4-.1-.9-.3-1.500-.6-2.600-1.100-4.300-3.700-4.400-3.900-.1-.2-1-1.400-1-2.600s.7-1.800.9-2.100c.2-.2.500-.3.700-.3h.5c.2 0 .4 0 .5.4l.8 1.800c.1.200.1.400 0 .5l-.4.500-.3.400c-.1.200-.3.300-.1.600.2.300.7 1.100 1.500 1.800 1 .9 1.800 1.200 2.100 1.300.3.100.4.100.6-.1l.8-1c.2-.2.300-.2.600-.1l1.700.8c.3.100.5.200.5.400.1.200.1.700-.1 1.200Z"/></svg></a>
-  <a id="tg" class="fab" style="background:#27a7e7" target="_blank" rel="noopener" aria-label="Join the VIP Channel on Telegram"><span class="tip" role="tooltip">Join VIP Channel</span><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M21.500 3.500 2.800 10.700c-1.300.5-1.300 1.300-.2 1.600l4.800 1.500 1.800 5.600c.2.600.1.800.7.800.5 0 .7-.2 1-.5l2.300-2.300 4.800 3.500c.9.500 1.500.2 1.700-.8l3.100-14.700c.3-1.300-.5-1.900-1.300-1.500ZM8.500 13.500l9.300-5.900c.4-.3.800-.1.500.2l-7.600 6.900-.3 3.200-1.900-4.400Z"/></svg></a>
-</div>
-
-<!-- priority signal popup -->
-<dialog id="sigDlg" aria-labelledby="sgT"><div class="panel prio p-6 w-[min(94vw,400px)]"><div class="flex justify-between text-xs dim"><span id="sgBroker"></span><button data-close class="text-2xl leading-none dim" aria-label="Close">×</button></div>
-  <h3 id="sgT" class="font-extrabold text-3xl mt-1"></h3><div id="sgBody" class="mt-3 text-sm"></div><button id="sgGo" class="btn w-full mt-4 text-base">Execute</button><a id="sgOpen" class="btn ghost w-full mt-2" target="_blank" rel="noopener">Open broker</a></div></dialog>
-
-<!-- invoice drawer -->
-<div id="scrim" class="fixed inset-0 z-40" style="background:rgba(0,0,0,.6)" hidden></div>
-<aside id="drawer" class="sheet fixed bottom-0 left-0 right-0 z-50 max-w-3xl mx-auto panel p-5" style="border-radius:18px 18px 0 0;padding-bottom:calc(1.25rem + env(safe-area-inset-bottom,0px))" aria-label="Invoice">
-  <div class="flex justify-between"><h3 class="font-extrabold text-lg">Invoice</h3><button class="dim text-2xl leading-none" id="dClose" aria-label="Close">×</button></div>
-  <div class="grid grid-cols-2 gap-3 mt-2"><div><div class="dim text-xs">Amount due</div><b id="invDue" class="text-xl">$0.00</b></div><div><div class="dim text-xs">Loss credit held</div><b id="invCr" class="text-xl ok">$0.00</b></div></div>
-  <p class="text-xs dim mt-3">Send USDT on TRON (TRC-20) to:</p><div class="flex gap-2 mt-1"><input id="addr" readonly aria-label="USDT TRC-20 address"><button id="copyAddr" class="btn ghost">Copy</button></div>
-  <div class="grid grid-cols-2 gap-2 mt-3"><input id="payAmt" type="number" step="0.01" min="0.01" placeholder="Amount (USDT)" aria-label="Amount"><input id="payTx" placeholder="Transaction ID" aria-label="Transaction ID"></div>
-  <input id="payFrom" class="mt-2" placeholder="Your sending wallet (starts with T)" aria-label="Your sending TRC-20 wallet" autocomplete="off"><button id="paySend" class="btn w-full mt-3">Submit payment</button><p id="payMsg" class="text-xs mt-2 dim" role="status"></p></aside>
 
 <script>
-const CFG = {WA: 'https://wa.me/0000000000', TG: 'https://t.me/your_vip_channel'};   // ← set your real links
-const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-const money = n => '$' + Number(n || 0).toFixed(2);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let AUTHED = false, ADMIN = sessionStorage.getItem('so_admin') || '', ST = null, SIGS = [], SEEN = null, TAB = 'PASSIVE', LINKS = {}, TLINKS = {}, SWIN = null, timers = [], CUR = null;
-$('#wa').href = CFG.WA; $('#tg').href = CFG.TG;
+let currentMode = 'register';
 
-async function api(path, opts = {}, admin = false) {
-  let r;
-  try { r = await fetch(path, {...opts, headers: {'Content-Type': 'application/json', ...(admin ? {'X-Admin-Secret': ADMIN} : {})}}); }   // session cookie is sent automatically
-  catch { throw new Error('Cannot reach the server. Check your connection, or open the live Share Option site.'); }
-  const d = await r.json().catch(() => ({}));
-  if (!r.ok) { if (r.status === 401 && !admin && AUTHED) { AUTHED = false; ST = null; route(); } throw new Error(typeof d.detail === 'string' ? d.detail : (d.detail?.[0]?.msg || r.statusText)); }
-  return d;
-}
-const toast = m => { const t = document.createElement('div'); t.textContent = m; t.setAttribute('role', 'alert'); t.style.cssText = 'position:fixed;left:50%;transform:translateX(-50%);bottom:90px;background:var(--panel);border:1px solid var(--line);padding:.6rem 1rem;border-radius:10px;z-index:90;max-width:90%'; document.body.appendChild(t); setTimeout(() => t.remove(), 3500); };
-const scrollTo_ = id => setTimeout(() => document.getElementById(id)?.scrollIntoView({behavior: 'smooth'}), 30);
-
-/* ── router ── */
-const go = p => { location.hash = '#/' + p; };
-const SLUGS = ['passive', 'compounding', 'power'], VIEWS = ['home', 'app', 'admin', 'signal', 'plan', 'login', 'legal'];
-function route() {
-  const parts = (location.hash.replace(/^#\/?/, '') || 'home').split('/'); let v = parts[0];
-  if (!VIEWS.includes(v) || (v === 'plan' && !SLUGS.includes(parts[1]))) v = 'home';
-  if (v === 'login' && AUTHED) { go('app'); return; }
-  if ((v === 'app' || v === 'signal') && !AUTHED) { v = 'home'; openAuth('login'); }
-  VIEWS.forEach(x => $('#v-' + x).hidden = x !== v); document.body.classList.toggle('pop', v === 'signal'); document.body.classList.toggle('bare', v === 'login');
-  $('#userbar').hidden = !(AUTHED && v === 'app'); $('#navApp').textContent = AUTHED ? 'Open App' : 'Launch App / Login'; $('#navOut').hidden = !AUTHED;
-  timers.forEach(clearInterval); timers = [];
-  if (v === 'app') { loadStatus(); loadSignals(); timers = [setInterval(loadSignals, 3000), setInterval(loadStatus, 10000), setInterval(tick, 1000)]; }
-  else if (v === 'signal') swStart(); else if (v === 'plan') renderPlanPage(parts[1]);
-  if (v === 'plan' || v === 'app' || v === 'legal') window.scrollTo(0, 0);
-}
-addEventListener('hashchange', route);
-document.addEventListener('click', e => {
-  const g = e.target.closest('[data-go]'); if (g) { if (location.hash !== '#/home' && location.hash !== '') location.hash = '#/home'; scrollTo_(g.dataset.go); }
-  const a = e.target.closest('[data-auth]'); if (a) openAuth(a.dataset.auth);
-  if (e.target.closest('[data-close]')) e.target.closest('dialog').close();
-});
-$('#navApp').onclick = e => { if (!AUTHED) { e.preventDefault(); openAuth('login'); } };
-
-/* ── health ── */
-async function ping() {
-  const t = performance.now();
-  try { const r = await fetch('/api/health'); if (!r.ok) throw 0; fails = 0; $('#offline').hidden = true; $('#dot').style.background = 'var(--ok)'; $('#lat').textContent = `live · ${Math.round(performance.now() - t)}ms`; }
-  catch { fails++; $('#offline').hidden = false; $('#dot').style.background = 'var(--bad)'; $('#lat').textContent = 'offline'; }
-  setTimeout(ping, fails > 2 ? 30000 : 5000);   // back off while the server is unreachable
-}
-let fails = 0; ping();
-function fillReg() { $$('[data-reg]').forEach(a => { if (LINKS[a.dataset.reg]) a.href = LINKS[a.dataset.reg]; }); }
-fetch('/api/config/brokers').then(r => r.json()).then(d => { LINKS = d; fillReg(); }).catch(() => {});
-fetch('/api/config/trade-links').then(r => r.json()).then(d => TLINKS = d).catch(() => {});
-
-/* ── home: entry-size calculator ── */
-function calc() {
-  const c = Math.max(parseFloat($('#cap').value) || 0, 0);
-  $('#oP').textContent = money(c * .05) + ' – ' + money(c * .1);
-  $('#oC').innerHTML = [10, 20, 30].map(x => `<span class="step">${money(c * x / 100)}</span>`).join('<span class="dim">→</span>');
-}
-$('#cap').addEventListener('input', calc); calc();
-
-/* ── auth: email / phone / Google (session cookie, no API keys) ── */
-const dlgs = {sig: $('#sigDlg')};
-let AFTER = null;
-function authTab(reg) {
-  $('#atL').setAttribute('aria-selected', !reg); $('#atR').setAttribute('aria-selected', reg); $('#fL').hidden = reg; $('#fR').hidden = !reg; $('#authErr').textContent = '';
-  $('#lgTitle').textContent = reg ? 'Create your account' : 'Welcome back'; $('#lgSub').textContent = reg ? 'Join with Google, your email or your phone number.' : 'Sign in to your dashboard.';
-}
-let RET = '#/home';
-function openAuth(m = 'login', after = null) {   // the login page replaces the old popup; remember where to return to
-  AFTER = after; if (location.hash !== '#/login') RET = location.hash || '#/home'; authTab(m === 'register');
-  if (location.hash !== '#/login') go('login'); else route();
-}
-$('#atL').onclick = () => authTab(false); $('#atR').onclick = () => authTab(true);
-$$('input[name=rid]').forEach(r => r.onchange = () => { const ph = r.value === 'phone'; $('#rId').type = ph ? 'tel' : 'email'; $('#rIdL').textContent = ph ? 'Phone (+country code, e.g. +2126…)' : 'Email address'; $('#rId').autocomplete = ph ? 'tel' : 'email'; });
-async function authed() {
-  ST = await api('/api/user/status'); AUTHED = true; $('#lPw').value = $('#rPw').value = '';
-  const back = RET && RET !== '#/login' && RET !== '#/home' ? RET : '#/app';   // return to where they came from, e.g. a plan page
-  location.hash = back; route();
-  if (AFTER) { const f = AFTER; AFTER = null; setTimeout(f, 60); }
-}
-$('#fL').onsubmit = async e => { e.preventDefault(); try { await api('/api/auth/login', {method: 'POST', body: JSON.stringify({identifier: $('#lId').value.trim(), password: $('#lPw').value})}); await authed(); } catch (err) { $('#authErr').textContent = err.message; } };
-$('#fR').onsubmit = async e => {
-  e.preventDefault(); const phone = $('input[name=rid]:checked').value === 'phone', id = $('#rId').value.trim();
-  if (!$('#rTerms').checked) { $('#authErr').textContent = 'Please accept the Terms, Privacy Policy and Risk Disclosure.'; return; }
-  if (phone && !/^\+[1-9]\d{7,14}$/.test(id)) { $('#authErr').textContent = 'Enter your phone with country code, e.g. +212612345678.'; return; }
-  try { await api('/api/auth/register', {method: 'POST', body: JSON.stringify({name: $('#rName').value.trim(), [phone ? 'phone' : 'email']: id, password: $('#rPw').value, accept_terms: true})}); await authed(); } catch (err) { $('#authErr').textContent = err.message; }
-};
-async function signOut() { try { await api('/api/auth/logout', {method: 'POST'}); } catch {} AUTHED = false; ST = null; go('home'); route(); }
-$('#navOut').onclick = signOut;
-async function loadPublic() {   // Google button only appears when GOOGLE_CLIENT_ID is configured on the server
-  try {
-    const c = await (await fetch('/api/config/public')).json();
-    if (c.whatsapp) { $('#wa').href = $('#pwWa').href = c.whatsapp; $('#wa').hidden = false; } if (c.telegram) { $('#tg').href = $('#pwTg').href = c.telegram; $('#tg').hidden = false; }
-    if (!c.google_client_id) return;
-    const sc = document.createElement('script'); sc.src = 'https://accounts.google.com/gsi/client'; sc.async = true;
-    sc.onload = () => { google.accounts.id.initialize({client_id: c.google_client_id, callback: async r => { try { await api('/api/auth/google', {method: 'POST', body: JSON.stringify({credential: r.credential})}); await authed(); } catch (err) { $('#authErr').textContent = err.message; } }});
-      google.accounts.id.renderButton($('#gBtn'), {theme: 'filled_black', size: 'large', width: 300, text: 'continue_with'}); $('#gWrap').hidden = false; };
-    document.head.appendChild(sc);
-  } catch {}
+function showAuthModal(mode) {
+  currentMode = mode;
+  updateFormUI();
+  document.getElementById('authContainer').scrollIntoView({ behavior: 'smooth' });
 }
 
-/* ── client: status, gate, meter ── */
-async function loadStatus() { try { ST = await api('/api/user/status'); renderStatus(); } catch (e) { console.warn(e.message); } }
-function renderStatus() {
-  if (!ST) return;
-  $('#bal').textContent = money(ST.balance); $('#meterTxt').textContent = `${money(ST.unpaid_fees)} of ${money(ST.debt_limit)}`;
-  const danger = ST.debt_pct >= 80 || ST.account_status === 'SUSPENDED', f = $('#meterFill'); f.style.width = ST.debt_pct + '%'; f.style.background = danger ? 'var(--bad)' : 'var(--ok)';
-  $('#meterTxt').className = danger ? 'bad' : 'ok'; $('#invDue').textContent = money(ST.unpaid_fees); $('#invCr').textContent = money(ST.loss_credit); $('#addr').value = ST.deposit_address;
-  const g = $('#gate'); g.hidden = ST.can_trade;
-  if (!ST.can_trade) {
-    const sus = ST.block_reason === 'SUSPENDED'; g.style.borderColor = sus ? 'var(--bad)' : 'var(--gold)';
-    g.innerHTML = sus ? `<b class="bad">Account suspended</b><p class="text-sm mt-1">Unpaid fees reached the $50 limit. Signals are locked until you pay your invoice in USDT (TRC-20).</p><button class="btn mt-3" onclick="openDrawer()">Pay invoice</button>`
-      : `<b class="gold">Broker account not verified yet</b><p class="text-sm mt-1">Link your broker account from a plan page. Signals unlock as soon as an admin verifies it.</p><button class="btn mt-3" onclick="go('plan/' + (ST.plan === 'COMPOUNDING' ? 'compounding' : 'passive'))">Link broker account</button>`;
+function toggleAuthMode(e) {
+  e.preventDefault();
+  currentMode = currentMode === 'register' ? 'login' : 'register';
+  updateFormUI();
+}
+
+function updateFormUI() {
+  const title = document.getElementById('authTitle');
+  const nameField = document.getElementById('nameField');
+  const submitBtn = document.getElementById('submitBtn');
+  const switchText = document.getElementById('authSwitchText');
+  const switchLink = document.getElementById('authSwitchLink');
+  const errorBox = document.getElementById('authError');
+
+  errorBox.style.display = 'none';
+
+  if (currentMode === 'register') {
+    title.innerText = 'Create your account';
+    nameField.style.display = 'block';
+    submitBtn.innerText = 'Create account';
+    switchText.innerText = 'Already have an account?';
+    switchLink.innerText = 'Sign in';
+  } else {
+    title.innerText = 'Sign in to Share Option';
+    nameField.style.display = 'none';
+    submitBtn.innerText = 'Sign in';
+    switchText.innerText = "Don't have an account?";
+    switchLink.innerText = 'Create account';
   }
-  renderPlan();
 }
 
-/* ── client: plan tabs ── */
-$$('#tabs .tab').forEach(b => b.onclick = () => { TAB = b.dataset.t; renderPlan(); });
-function renderPlan() {
-  $$('#tabs .tab').forEach(b => b.setAttribute('aria-selected', b.dataset.t === TAB));
-  if ($('#planPanel').contains(document.activeElement) && document.activeElement.tagName === 'INPUT') return;  // don't wipe typing
-  if (!ST) return; const on = ST.plan === TAB, p = $('#planPanel'), badge = on ? '<span class="ok text-xs font-bold">ACTIVE PLAN</span>' : '';
-  if (TAB === 'PASSIVE') p.innerHTML = `<div class="flex justify-between"><h3 class="font-extrabold text-xl">🛡️ Passive</h3>${badge}</div><p class="dim text-sm mt-1">Fixed stake of 5–10% of capital. Platform fee 20% of profit, paid after withdrawal.</p>
-    <div class="grid grid-cols-3 gap-3 mt-4 text-sm"><div><div class="dim text-xs">Your stake</div><b>${on ? ST.stake_pct : 5}%</b></div><div><div class="dim text-xs">Next trade</div><b>${on ? money(ST.next_stake) : '—'}</b></div><div><div class="dim text-xs">Fee</div><b>20%</b></div></div>
-    <button class="btn mt-4" onclick="go('plan/passive')">${on ? 'Edit plan & broker' : 'Activate Passive'}</button>`;
-  else if (TAB === 'COMPOUNDING') { const cur = on ? ST.next_stake_pct : 0;
-    p.innerHTML = `<div class="flex justify-between"><h3 class="font-extrabold text-xl">🚀 Compounding</h3>${badge}</div><p class="dim text-sm mt-1">Stake climbs with each win, returns to 10% of your current balance after 30%, and any loss resets it to 10%. Fee 40% of profit. Higher stakes mean higher risk.</p>
-    <div class="flex flex-wrap items-center gap-2 mt-4 text-sm">${[10, 20, 30].map(x => `<span class="step ${cur === x ? 'on' : ''}">${x}% · ${money(ST.balance * x / 100)}</span>`).join('→')}<span class="dim">↻ 10%</span></div><p class="text-xs dim mt-2">Entry = step % × your current balance (${money(ST.balance)}), recalculated after every result.</p>
-    <div class="grid grid-cols-2 gap-3 mt-4 text-sm"><div><div class="dim text-xs">Next trade</div><b>${on ? money(ST.next_stake) : '—'}</b></div><div><div class="dim text-xs">Fee</div><b>40%</b></div></div>
-    <button class="btn mt-4" onclick="go('plan/compounding')">${on ? 'Edit plan & broker' : 'Activate Compounding'}</button>`; }
-  else p.innerHTML = `<div class="flex justify-between"><h3 class="font-extrabold text-xl">⚡ Power Share Pool</h3>${badge}</div><p class="dim text-sm mt-1">A managed pool. Your value is your ownership share of the master balance. Fee 30% of profit.</p>
-    <div class="grid grid-cols-3 gap-3 mt-4 text-sm"><div><div class="dim text-xs">Master pool</div><b>${money(ST.pool_balance)}</b></div><div><div class="dim text-xs">Your share</div><b class="gold">${ST.share_pct}%</b></div><div><div class="dim text-xs">Your value</div><b>${money(ST.pool_balance * ST.share_pct / 100)}</b></div></div>
-    ${ST.share_pct > 0 ? `<button class="btn mt-4" ${on ? 'disabled' : ''} id="poolBtn">${on ? 'Active' : 'Switch to Power Share'}</button>` : '<p class="text-sm dim mt-4">Pool allocation is by invitation. Contact support to join.</p>'}`;
-  if (TAB !== 'POWER_POOL') { p.insertAdjacentHTML('beforeend', `<div class="mt-5 pt-4 border-t" style="border-color:var(--line)"><label for="balIn" class="text-xs dim">Keep entry amounts accurate: set your current broker balance</label><div class="flex gap-2 mt-1"><input id="balIn" type="number" min="0" step="0.01" placeholder="${ST.balance.toFixed(2)}"><button class="btn ghost" id="balBtn">Update</button></div></div>`); $('#balBtn').onclick = syncBalance; }
-  $('#poolBtn')?.addEventListener('click', async () => { try { ST = await api('/api/user/plan', {method: 'POST', body: JSON.stringify({plan: 'POWER_POOL'})}); renderStatus(); loadSignals(); } catch (e) { toast(e.message); } });
-}
+async function handleAuthSubmit(event) {
+  event.preventDefault();
+  
+  const submitBtn = document.getElementById('submitBtn');
+  const errorBox = document.getElementById('authError');
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const fullName = document.getElementById('fullName').value;
 
-/* ── plan pages: how it works, broker choice, broker registration, account linking ── */
-const PU = {
-  passive: {key: 'PASSIVE', title: '🛡️ Passive Plan', blurb: 'A low, steady stake that you choose.', facts: [['Stake per trade', '5–10% of your capital'], ['Platform fee', '20% of profit, paid after you withdraw'], ['Good for', 'Smaller, steadier exposure']]},
-  compounding: {key: 'COMPOUNDING', title: '🚀 Compounding Plan', blurb: 'Faster cycles with higher risk. Your entry is calculated automatically from your current balance.', facts: [['Stake ladder', '10% → 20% → 30% of balance, then back to 10%'], ['Reset rule', 'Any loss returns the stake to 10%'], ['Platform fee', '40% of profit, paid after you withdraw']]},
-  power: {key: 'POWER_POOL', title: '⚡ Power Share Pool', blurb: 'A managed pool. You own a live share of the master balance.', facts: [['Structure', 'One master wallet, your share %'], ['Platform fee', '30% of profit'], ['Access', 'By invitation']]}};
-const BK = [['POCKET_OPTION', 'Pocket Option', 'Automated', 'Copy our master trade ID in one click. Your stake matches your plan.', 'pocket-option'], ['QUOTEX', 'Quotex', 'Semi-automated', 'A live popup shows the signal and your stake; you tap Execute.', 'quotex'], ['IQ_OPTION', 'IQ Option', 'Semi-automated', 'Same live popup with one-tap Execute and a link to your terminal.', 'iq-option']];
-PU.passive.how = ['Choose your broker below. Its registration opens in a new window: create your account there.', 'Come back, enter your broker account ID and capital, and submit.', 'An admin verifies your broker account. Signals stay locked until then.', 'Every signal arrives with your 5–10% stake already calculated.'];
-PU.compounding.how = ['Choose your broker below. Its registration opens in a new window: create your account there.', 'Come back, enter your broker account ID and capital, and submit.', 'An admin verifies your broker account. Signals stay locked until then.', 'Your entry is calculated from your current balance: 10% → 20% → 30%, then back to 10%. A loss resets it.'];
-PU.power.how = ['Request an allocation from support: the pool is by invitation.', 'Register at a broker below and submit your account ID so we can verify you.', 'Once you hold a share %, switch to Power Share from your dashboard.', 'Your value follows your share of the master balance.'];
-let PP = {slug: null, broker: null, via: false};
-function renderPlanPage(slug) {
-  const u = PU[slug], pool = slug === 'power'; PP = {slug, broker: null, via: false};
-  $('#ppHead').innerHTML = `<h1 class="text-3xl font-extrabold">${u.title}</h1><p class="dim mt-2">${u.blurb}</p><dl class="mt-4 grid sm:grid-cols-3 gap-3 text-sm">${u.facts.map(([k, v]) => `<div class="panel p-3"><dt class="dim text-xs">${k}</dt><dd class="font-bold mt-1">${v}</dd></div>`).join('')}</dl><h2 class="display text-xl font-bold mt-6">How it works</h2><ol class="mt-3 space-y-3 text-sm">${u.how.map((t, i) => `<li class="flex gap-3"><span class="step on">${i + 1}</span><span>${t}</span></li>`).join('')}</ol>`;
-  $('#ppPool').hidden = !pool; $('#ppForm').hidden = true; $('#ppStatus').hidden = true; $('#ppStakeBox').hidden = slug !== 'passive'; $('#ppCap').hidden = pool;
-  $('#ppBrokers').innerHTML = BK.map(([c, n, m, d, f]) => `<button class="bk panel p-4 text-left" data-b="${c}" aria-pressed="false"><div class="flex items-center gap-3"><img src="/static/brokers/${f}.svg" alt="" width="44" height="44" class="rounded-lg"><div><b>${n}</b><div class="text-xs font-bold ${m === 'Automated' ? 'ok' : 'gold'}">${m}</div></div></div><p class="dim text-sm mt-3">${d}</p><p class="text-xs gold font-bold mt-3">Register at ${n} →</p></button>`).join('');
-  if (AUTHED) loadPlanStatus();
-}
-document.addEventListener('click', e => {
-  const b = e.target.closest('#ppBrokers [data-b]'); if (!b) return;
-  if (!AUTHED) { openAuth('register', () => pickBroker(b.dataset.b)); return; }
-  pickBroker(b.dataset.b);
-});
-function pickBroker(code) {
-  PP.broker = code; $$('#ppBrokers .bk').forEach(x => x.setAttribute('aria-pressed', x.dataset.b === code));
-  const name = BK.find(x => x[0] === code)[1], url = LINKS[code];
-  $('#ppOpen').href = url || '#'; $('#ppOpen').textContent = `Open ${name} registration`;
-  if (url) { window.open(url, '_blank', 'noopener'); PP.via = true; } else toast('This broker link is not configured yet.');
-  $('#ppFormT').textContent = `2. Link your ${name} account`; $('#ppForm').hidden = false; $('#ppForm').scrollIntoView({behavior: 'smooth'}); loadPlanStatus(code);
-}
-$('#ppOpen').onclick = () => { PP.via = true; };
-$('#ppRange').oninput = e => $('#ppVal').textContent = e.target.value + '%';
-async function loadPlanStatus(code) {
+  submitBtn.disabled = true;
+  submitBtn.innerText = 'Processing...';
+  errorBox.style.display = 'none';
+
+  const endpoint = currentMode === 'register' ? '/api/register' : '/api/login';
+  const payload = currentMode === 'register' ? { email, password, fullName } : { email, password };
+
   try {
-    const accts = (await api('/api/user/broker-account')).accounts, a = accts.find(x => x.broker === (code || PP.broker)) || (code ? null : accts[0]), st = $('#ppStatus');
-    if (!a) { st.hidden = true; return; }
-    const M = {PENDING: ['gold', 'Waiting for admin verification', 'Your signals stay locked until we verify your broker account. We check the ID you submitted against our broker records.'], VERIFIED: ['ok', 'Verified: signals are active', 'Your live signals are unlocked.'], REJECTED: ['bad', 'Not verified', 'We could not verify this account. Check the ID and that you registered through our link, then resubmit or contact support.']}[a.status];
-    st.hidden = false; st.innerHTML = `<b class="${M[0]}">${M[1]}</b><p class="text-sm dim mt-1">${esc(a.broker.replace('_', ' '))} · ID ${esc(a.broker_uid)} · ${a.account_type.toLowerCase()} account</p><p class="text-sm mt-2">${M[2]}</p>${a.status === 'VERIFIED' ? '<button class="btn mt-3" onclick="go(\'app\')">Open dashboard</button>' : ''}`;
-  } catch {}
-}
-$('#ppGo').onclick = async () => {
-  const uid = $('#ppUid').value.trim(), cap = parseFloat($('#ppCap').value), err = $('#ppErr'), u = PU[PP.slug];
-  if (!/^[A-Za-z0-9_-]{4,40}$/.test(uid)) { err.textContent = 'Enter your broker account ID (4–40 letters or numbers).'; return; }
-  if (u.key !== 'POWER_POOL' && !(cap >= 10)) { err.textContent = 'Enter your trading capital (minimum $10).'; return; }
-  $('#ppGo').disabled = true; err.textContent = '';
-  try {
-    await api('/api/user/broker-account', {method: 'POST', body: JSON.stringify({broker: PP.broker, broker_uid: uid, account_type: $('input[name=ppType]:checked').value, plan: u.key, via_link: PP.via})});
-    if (u.key === 'POWER_POOL') { await loadPlanStatus(PP.broker); $('#ppStatus').scrollIntoView({behavior: 'smooth'}); toast('Submitted. Contact support to request your pool allocation.'); return; }
-    try { await api('/api/user/balance', {method: 'POST', body: JSON.stringify({balance: cap})}); } catch (e) { if (!/open trades|master pool/.test(e.message)) throw e; }
-    const body = {plan: u.key}; if (u.key === 'PASSIVE') body.stake_pct = +$('#ppRange').value;
-    ST = await api('/api/user/plan', {method: 'POST', body: JSON.stringify(body)}); await loadPlanStatus(PP.broker); $('#ppStatus').scrollIntoView({behavior: 'smooth'});
-  } catch (e) { err.textContent = e.message; } finally { $('#ppGo').disabled = false; }
-};
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
 
-/* ── live signals (real feed only) ── */
-async function loadSignals() {
-  try {
-    const d = await api('/api/signals'); SIGS = d.signals; const ids = new Set(SIGS.map(s => s.id));
-    if (SEEN) SIGS.filter(s => !SEEN.has(s.id) && !s.executed).forEach(newSignal); SEEN = ids; renderRows(d);
-  } catch (e) { console.warn(e.message); }
-}
-const secs = iso => Math.round((new Date(iso) - Date.now()) / 1000), fmt = s => `${Math.floor(s / 60)}:${String(Math.abs(s) % 60).padStart(2, '0')}`;
-const expAt = s => new Date(new Date(s.entry_time).getTime() + s.expiry_min * 60000).toISOString();
-function renderRows(d) {
-  const b = $('#rows');
-  if (d.blocked) { b.innerHTML = `<tr><td colspan="6" class="text-center py-8 ${d.reason === 'SUSPENDED' ? 'bad' : 'gold'}">${d.reason === 'SUSPENDED' ? 'Signals are locked while your account is suspended.' : 'Signals unlock once your broker account is verified.'}</td></tr>`; return; }
-  if (!SIGS.length) { b.innerHTML = '<tr><td colspan="6" class="dim text-center py-8">Waiting for the next signal from the VIP channel…</td></tr>'; return; }
-  b.innerHTML = SIGS.map(s => `<tr data-id="${s.id}"><td class="font-extrabold">${esc(s.pair)}</td><td class="font-extrabold ${s.direction === 'CALL' ? 'ok' : 'bad'}">${s.direction === 'CALL' ? '▲ CALL' : '▼ PUT'}</td><td class="en"></td><td class="ex"></td><td>${money(s.stake)}</td><td><button class="btn !py-1.5 go">Execute</button></td></tr>`).join('');
-  $$('#rows .go').forEach(x => x.onclick = () => execute(+x.closest('tr').dataset.id)); tick();
-}
-function tick() {
-  $$('#rows tr[data-id]').forEach(tr => { const s = SIGS.find(x => x.id === +tr.dataset.id); if (!s) return; const a = secs(s.entry_time), z = secs(s.expires_at), e = secs(expAt(s)), btn = tr.querySelector('.go');
-    tr.querySelector('.en').innerHTML = s.executed ? '<span class="ok">Placed</span>' : a > 0 ? 'in ' + fmt(a) : z > 0 ? `<b class="gold">LIVE ${z}s</b>` : '<span class="dim">Closed</span>';
-    tr.querySelector('.ex').textContent = e > 0 ? fmt(e) : 'Expired'; btn.disabled = s.executed || z <= 0 || a > 15; });
-  if (CUR && dlgs.sig.open && !CUR.done) { const a = secs(CUR.s.entry_time); $('#sgCd').textContent = a > 0 ? 'Starts in ' + fmt(a) : `LIVE ${Math.max(secs(CUR.s.expires_at), 0)}s`; }
-}
-function newSignal(s) {
-  if (SWIN && !SWIN.closed) return;   // the pop-out signal window is handling alerts
-  if (Notification.permission === 'granted') new Notification(`${s.direction} ${s.pair}`, {body: `${s.expiry_min}m · stake ${money(s.stake)}`, tag: 'sig' + s.id});
-  if (ST && ST.broker !== 'POCKET_OPTION') popup(s);           // Quotex / IQ Option / others: high-priority popup
-  else toast(`New signal: ${s.direction} ${s.pair}. Copy the master trade.`);
-}
-function popup(s) {
-  CUR = {s, done: false}; $('#sgBroker').textContent = ST.broker.replace('_', ' ') + ' · priority signal'; $('#sgT').innerHTML = `<span class="${s.direction === 'CALL' ? 'ok' : 'bad'}">${s.direction === 'CALL' ? '▲' : '▼'}</span> ${esc(s.direction)} ${esc(s.pair)}`;
-  $('#sgBody').innerHTML = `<div class="grid grid-cols-3 gap-2"><div><div class="dim text-xs">Stake</div><b class="text-lg">${money(s.stake)}</b></div><div><div class="dim text-xs">Expiry</div><b class="text-lg">${s.expiry_min}m</b></div><div><div class="dim text-xs">Timer</div><b id="sgCd" class="text-lg gold"></b></div></div>`;
-  $('#sgGo').hidden = false; $('#sgGo').disabled = false; $('#sgOpen').href = TLINKS[ST.broker] || '#'; $('#sgGo').onclick = () => execute(s.id); if (!dlgs.sig.open) dlgs.sig.showModal(); tick();
-}
-async function execute(id) {
-  try {
-    const p = await api(`/api/signals/${id}/execute`, {method: 'POST'}); const s = SIGS.find(x => x.id === id); if (s) s.executed = true; loadStatus(); renderRows({blocked: false});
-    if (!(dlgs.sig.open && CUR?.s.id === id)) { CUR = {s: s || {entry_time: p.entry_time, expires_at: p.entry_time}, done: true}; $('#sgGo').hidden = true; dlgs.sig.showModal(); }
-    CUR.done = true; $('#sgBroker').textContent = p.broker.replace('_', ' '); $('#sgT').textContent = `${p.direction} ${p.asset}`; $('#sgGo').hidden = true; $('#sgOpen').href = TLINKS[p.broker] || '#';
-    $('#sgBody').innerHTML = p.type === 'COPY_TRADE'
-      ? `<p>Copy master trade <b class="gold">${esc(p.master_copy_trade_id)}</b> in Pocket Option. Stake <b>${money(p.stake)}</b>, ${p.expiry_seconds / 60}m.</p><button class="btn ghost mt-3" onclick="navigator.clipboard?.writeText('${esc(p.master_copy_trade_id)}');toast('Copied')">Copy trade ID</button>`
-      : `<p>Place <b>${money(p.stake)}</b> on ${esc(p.asset)} for ${p.expiry_seconds / 60}m in your ${esc(p.broker.replace('_', ' '))} terminal.</p>`;
-    navigator.vibrate?.(120);
-  } catch (e) { toast(e.message); loadStatus(); loadSignals(); }
-}
-$('#notif').onclick = async () => { $('#notif').textContent = (await Notification.requestPermission()) === 'granted' ? 'Alerts on' : 'Alerts blocked'; };
+    const data = await response.json();
 
-async function syncBalance() {
-  const v = parseFloat($('#balIn').value); if (!(v >= 0)) { toast('Enter your current broker balance.'); return; }
-  try { ST = await api('/api/user/balance', {method: 'POST', body: JSON.stringify({balance: v})}); document.activeElement.blur(); renderStatus(); toast('Balance updated. Entry amounts recalculated.'); } catch (e) { toast(e.message); }
+    if (response.ok) {
+      alert(currentMode === 'register' ? 'Account created successfully!' : 'Signed in successfully!');
+      if (data.token) localStorage.setItem('token', data.token);
+      window.location.reload();
+    } else {
+      throw new Error(data.message || data.detail || 'Authentication failed.');
+    }
+  } catch (err) {
+    errorBox.innerText = err.message;
+    errorBox.style.display = 'block';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerText = currentMode === 'register' ? 'Create account' : 'Sign in';
+  }
 }
-
-/* ── pop-out live signal window (semi-automated execution) ── */
-function openSigWin() { SWIN = window.open(location.pathname + '#/signal', 'so_signal', 'popup=yes,width=420,height=700'); if (!SWIN) toast('Pop-ups are blocked. Allow them for this site, then try again.'); }
-$('#openWin').onclick = openSigWin;
-const SW = {seen: null, key: '', sound: false, ctx: null, ex: {}, cur: null, blocked: null};
-function beep() { if (!SW.sound || !SW.ctx) return; const o = SW.ctx.createOscillator(), g = SW.ctx.createGain(); o.connect(g); g.connect(SW.ctx.destination); o.frequency.value = 880; g.gain.value = .15; o.start(); o.stop(SW.ctx.currentTime + .25); }
-function swStart() {
-  $('#swSound').onclick = () => { SW.sound = true; try { SW.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch {} $('#swSound').textContent = 'Sound on'; beep(); };
-  document.title = 'Share Option · Live signal'; swLoad();
-  timers = [setInterval(swLoad, 2000), setInterval(swTick, 1000), setInterval(() => api('/api/user/status').then(s => ST = s).catch(() => {}), 15000)];
-}
-function swAlert(s) {
-  beep(); navigator.vibrate?.(200); try { window.focus(); } catch {}
-  if (Notification.permission === 'granted') new Notification(`${s.direction} ${s.pair}`, {body: `${s.expiry_min}m · stake ${money(s.stake)}`, tag: 'sig' + s.id});
-  document.title = `🔔 ${s.direction} ${s.pair}`; setTimeout(() => document.title = 'Share Option · Live signal', 8000);
-}
-async function swLoad() {
-  try {
-    if (!ST) ST = await api('/api/user/status');
-    const d = await api('/api/signals'); SIGS = d.signals;
-    const cur = d.blocked ? null : (SIGS.find(s => !s.executed && secs(s.expires_at) > 0) || SIGS[0] || null);
-    if (SW.seen && cur && !SW.seen.has(cur.id) && !cur.executed) swAlert(cur);
-    SW.seen = new Set(SIGS.map(s => s.id));
-    const key = d.blocked ? 'b' + d.reason : cur ? cur.id + ':' + cur.executed + ':' + cur.stake : 'none';
-    if (key !== SW.key) { SW.key = key; SW.cur = cur; SW.blocked = d.blocked ? d.reason : null; swRender(); }
-    $('#swMsg').textContent = '';
-  } catch (e) { $('#swMsg').textContent = e.message; }
-}
-function swDone(p) {
-  return p.type === 'COPY_TRADE'
-    ? `<div class="mt-5 panel p-4 text-sm"><p>Copy master trade <b class="gold">${esc(p.master_copy_trade_id)}</b> in Pocket Option, stake <b>${money(p.stake)}</b>.</p><button class="btn ghost mt-3" onclick="navigator.clipboard?.writeText('${esc(p.master_copy_trade_id)}');toast('Copied')">Copy trade ID</button></div>`
-    : `<div class="mt-5 panel p-4 text-sm"><p>Place <b>${money(p.stake)}</b> on ${esc(p.asset)} for ${p.expiry_seconds / 60}m in your ${esc(p.broker.replace('_', ' '))} terminal.</p></div>`;
-}
-function swRender() {
-  const c = $('#swCard'), s = SW.cur, b = ST ? ST.broker : ''; $('#swBroker').textContent = b ? b.replace('_', ' ') + ' · live signals' : 'Live signal window';
-  if (SW.blocked) { const sus = SW.blocked === 'SUSPENDED'; c.innerHTML = `<b class="${sus ? 'bad' : 'gold'}">${sus ? 'Account suspended' : 'Broker account not verified yet'}</b><p class="text-sm dim mt-2">${sus ? 'Pay your invoice in the main app to resume signals.' : 'Signals unlock once your broker account is verified.'}</p>`; return; }
-  if (!s) { c.innerHTML = '<div class="dim py-10">Waiting for the next signal from the VIP channel…</div>'; return; }
-  const ex = SW.ex[s.id], call = s.direction === 'CALL';
-  c.innerHTML = `<div class="${call ? 'ok' : 'bad'} text-5xl font-extrabold">${call ? '▲' : '▼'} ${s.direction}</div><div class="text-3xl font-extrabold mt-2">${esc(s.pair)}</div>
-    <div class="grid grid-cols-3 gap-2 mt-5 text-sm"><div class="panel p-3"><div class="dim text-xs">Your stake</div><b class="text-lg">${money(s.stake)}</b></div><div class="panel p-3"><div class="dim text-xs">Expiry</div><b class="text-lg">${s.expiry_min}m</b></div><div class="panel p-3"><div class="dim text-xs">Entry</div><b id="swCd" class="text-lg gold"></b></div></div>
-    ${ex ? swDone(ex) : s.executed ? '<p class="ok font-bold mt-5">Executed</p>' : '<button id="swGo" class="btn w-full mt-5 text-lg">Execute</button>'}
-    <a class="btn ghost w-full mt-2" target="_blank" rel="noopener" href="${esc(TLINKS[b] || '#')}">Open ${esc((b || 'broker').replace('_', ' '))}</a>`;
-  $('#swGo')?.addEventListener('click', () => swExecute(s.id)); swTick();
-}
-async function swExecute(id) { try { SW.ex[id] = await api(`/api/signals/${id}/execute`, {method: 'POST'}); swRender(); } catch (e) { $('#swMsg').textContent = e.message; swLoad(); } }
-function swTick() {
-  const s = SW.cur; if (!s) return; const a = secs(s.entry_time), z = secs(s.expires_at), el = $('#swCd'), g = $('#swGo');
-  if (el) el.textContent = a > 0 ? 'in ' + fmt(a) : z > 0 ? `LIVE ${z}s` : 'Closed'; if (g) g.disabled = z <= 0 || a > 15;
-}
-
-/* ── invoice drawer ── */
-function openDrawer() { $('#scrim').hidden = false; $('#drawer').classList.add('open'); } function closeDrawer() { $('#scrim').hidden = true; $('#drawer').classList.remove('open'); }
-$('#meterBtn').onclick = openDrawer; $('#scrim').onclick = closeDrawer; $('#dClose').onclick = closeDrawer;
-$('#copyAddr').onclick = () => { navigator.clipboard?.writeText($('#addr').value); $('#copyAddr').textContent = 'Copied'; setTimeout(() => $('#copyAddr').textContent = 'Copy', 1500); };
-$('#paySend').onclick = async () => {
-  const amount = parseFloat($('#payAmt').value), txid = $('#payTx').value.trim(), from = $('#payFrom').value.trim(), m = $('#payMsg'); m.className = 'text-xs mt-2 bad';
-  if (!(amount > 0) || txid.length < 16) { m.textContent = 'Enter the amount and the full transaction ID.'; return; }
-  if (!/^T[1-9A-HJ-NP-Za-km-z]{33}$/.test(from)) { m.textContent = 'Enter the TRC-20 wallet you sent from (34 characters, starts with T).'; return; }
-  try { const d = await api('/api/user/settle-fees', {method: 'POST', body: JSON.stringify({amount, txid, network: 'TRC20', from_address: from})}); ST = d.status; renderStatus(); loadSignals(); m.className = 'text-xs mt-2 ok';
-    m.textContent = d.payment_status === 'CONFIRMED' ? `Paid. ${money(d.applied)} applied.` : 'Payment recorded. We check the transfer on the TRON network automatically and your fees drop once it confirms, usually within a few minutes.'; $('#payAmt').value = $('#payTx').value = $('#payFrom').value = ''; } catch (e) { m.textContent = e.message; }
-};
-
-/* ── admin ── */
-const SFIELDS = [['link_pocket_option', 'Pocket Option registration link'], ['link_quotex', 'Quotex registration link'], ['link_iq_option', 'IQ Option registration link'], ['trade_pocket_option', 'Pocket Option trading page'], ['trade_quotex', 'Quotex trading page'], ['trade_iq_option', 'IQ Option trading page'], ['whatsapp_url', 'WhatsApp support link (https://wa.me/…)'], ['telegram_url', 'Telegram VIP channel link (https://t.me/…)'], ['pocket_master_id', 'Pocket Option master copy-trade ID'], ['usdt_address', 'USDT TRC-20 receiving address']];
-function renderSettings(d) {
-  $('#sForm').innerHTML = SFIELDS.map(([k, l]) => `<label class="block text-xs dim">${l}<input id="set_${k}" class="mt-1" value="${esc(d.values[k] || '')}" autocomplete="off"></label>`).join('');
-  $('#sChecks').innerHTML = d.checks.map(c => `<li class="${c.ok ? 'ok' : 'bad'}">${c.ok ? '✓' : '✗'} ${esc(c.label)}</li>`).join('');
-  $('#sStatus').textContent = `${d.pending_accounts} accounts and ${d.pending_payments} payments pending · ${d.last_signal_at ? 'last signal ' + new Date(d.last_signal_at + 'Z').toLocaleString() : 'no signals received yet'}`;
-}
-$('#sSave').onclick = async () => {
-  const body = {}; SFIELDS.forEach(([k]) => { const v = $('#set_' + k).value.trim(); if (v) body[k] = v; });
-  try { renderSettings(await api('/api/admin/settings', {method: 'POST', body: JSON.stringify(body)}, true)); fetch('/api/config/brokers').then(r => r.json()).then(d => { LINKS = d; fillReg(); }); $('#sMsg').className = 'text-xs mt-2 ok'; $('#sMsg').textContent = 'Saved. Changes are live immediately.'; }
-  catch (e) { $('#sMsg').className = 'text-xs mt-2 bad'; $('#sMsg').textContent = e.message; }
-};
-$('#aSecret').value = ADMIN;
-async function aLoad() {
-  ADMIN = $('#aSecret').value.trim(); sessionStorage.setItem('so_admin', ADMIN); $('#aMsg').textContent = 'Loading…';
-  try {
-    const d = await api('/api/admin/clients', {}, true), t = d.totals;
-    renderSettings(await api('/api/admin/settings', {}, true)); $('#aMsg').textContent = `${d.clients} clients`;
-    $('#aCards').innerHTML = [['Accrued', money(t.accrued), 'gold'], ['Collected', money(t.collected), 'ok'], ['Credited', money(t.credited), ''], ['Outstanding', money(t.outstanding), t.outstanding ? 'bad' : ''], ['Real / Demo', `${d.by_account_type.REAL || 0} / ${d.by_account_type.DEMO || 0}`, ''], ['Passive / Comp.', `${d.by_plan.PASSIVE || 0} / ${d.by_plan.COMPOUNDING || 0}`, '']].map(([l, v, c]) => `<div class="panel p-3"><div class="dim text-xs">${l}</div><b class="text-lg ${c}">${v}</b></div>`).join('');
-    $('#aRows').innerHTML = d.rows.map(r => { const a = r.broker_accounts[0], c = r.commission;
-      return `<tr><td><b>${esc(r.name)}</b><div class="dim text-xs">${esc(r.email || r.phone || '')}</div><div class="dim text-xs">#${r.user_id} · ${money(r.balance)}</div></td><td>${esc(r.plan)}<div class="dim text-xs">${Math.round(r.fee_rate * 100)}%</div></td>
-      <td>${a ? `${esc(a.broker.replace('_', ' '))}<div class="dim text-xs">ID ${esc(a.broker_uid)} · ${a.via_link ? 'our link' : 'no link'}</div>` : '<span class="dim">not linked</span>'}</td><td>${a ? a.account_type : ''}</td>
-      <td>${a ? `<span class="${a.status === 'VERIFIED' ? 'ok' : a.status === 'REJECTED' ? 'bad' : 'gold'}">${a.status.toLowerCase()}</span><div class="flex gap-1 mt-1"><button class="btn !py-0.5 !px-2 text-xs" data-v="${a.id}:VERIFIED">Verify</button><button class="btn ghost !py-0.5 !px-2 text-xs" data-v="${a.id}:REJECTED">Reject</button></div>` : '—'}</td>
-      <td>${money(c.accrued)}</td><td class="ok">${money(c.collected)}</td><td>${money(c.credited)}</td><td class="${c.outstanding ? 'bad' : ''}">${money(c.outstanding)}</td><td class="${r.account_status === 'ACTIVE' ? 'ok' : 'bad'}">${r.account_status.toLowerCase()}</td></tr>`; }).join('') || '<tr><td colspan="10" class="dim py-6 text-center">No clients yet.</td></tr>';
-  } catch (e) { $('#aMsg').textContent = e.message; }
-}
-$('#aLoad').onclick = aLoad;
-$('#aRows').addEventListener('click', async e => { const b = e.target.closest('[data-v]'); if (!b) return; const [id, status] = b.dataset.v.split(':'); try { await api(`/api/admin/broker-accounts/${id}/verify`, {method: 'POST', body: JSON.stringify({status})}, true); aLoad(); } catch (err) { $('#aMsg').textContent = err.message; } });
-
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
-async function init() { try { ST = await api('/api/user/status'); AUTHED = true; } catch {} $('#wa').hidden = $('#tg').hidden = true; loadPublic(); route(); }
-init();
 </script>
+
 </body>
 </html>
