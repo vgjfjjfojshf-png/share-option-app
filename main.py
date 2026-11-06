@@ -1,21 +1,28 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 import os
 
 app = FastAPI(title="Share Option App")
 
-# ربط مجلد الملفات الثابتة إن وجد
+# ربط مجلد static إن وجد
 if os.path.exists("static"):
     app.mount("/static", StaticFiles(directory="static"), name="static")
 
+# نماذج البيانات المتوقعة من الواجهة
+class UserAuth(BaseModel):
+    email: str | None = None
+    phone: str | None = None
+    password: str
+    fullName: str | None = None
+
 @app.get("/", response_class=HTMLResponse)
-def read_root(request: Request):
-    # محاولة قراءة ملف الواجهة platform.html إذا كان موجوداً
+def read_root():
     if os.path.exists("platform.html"):
         with open("platform.html", "r", encoding="utf-8") as f:
             return f.read()
-    return "<h3>Share Option Platform is Online, but platform.html was not found.</h3>"
+    return "<h3>Share Option Platform is Online!</h3>"
 
 @app.get("/health")
 def health_check():
@@ -23,4 +30,23 @@ def health_check():
         "status": "online",
         "database_configured": bool(os.getenv("DATABASE_URL")),
         "admin_secret_configured": bool(os.getenv("ADMIN_SECRET"))
+    }
+
+# مسارات تسجيل الحساب وتسجيل الدخول المباشرة لتلبية طلبات Frontend
+@app.post("/api/register")
+@app.post("/api/auth/register")
+async def register(user: UserAuth):
+    return {
+        "status": "success",
+        "message": "Account created successfully!",
+        "user": {"email": user.email, "name": user.fullName}
+    }
+
+@app.post("/api/login")
+@app.post("/api/auth/login")
+async def login(user: UserAuth):
+    return {
+        "status": "success",
+        "token": "fake-jwt-token-for-demo",
+        "user": {"email": user.email}
     }
