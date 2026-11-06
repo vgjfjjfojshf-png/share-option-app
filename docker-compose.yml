@@ -1,0 +1,25 @@
+services:
+  api:
+    build: .
+    env_file: .env
+    volumes: ["./data:/data"]
+    restart: unless-stopped
+  listener:
+    build: .
+    command: python telegram_listener.py
+    env_file: .env
+    environment: {BACKEND_URL: "http://api:8000", TG_SESSION: "/sessions/listener"}
+    volumes: ["./sessions:/sessions"]
+    stdin_open: true
+    tty: true
+    depends_on: [api]
+    restart: unless-stopped
+  caddy:
+    image: caddy:2
+    ports: ["80:80", "443:443"]
+    environment: {DOMAIN: "${DOMAIN}"}
+    volumes: ["./Caddyfile:/etc/caddy/Caddyfile", "caddy_data:/data"]
+    depends_on: [api]
+    restart: unless-stopped
+volumes:
+  caddy_data:
