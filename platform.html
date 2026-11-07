@@ -4,111 +4,244 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0c1119">
-<title>Share Option</title>
+<title>Share Option - Live Trading Platform</title>
 <link rel="manifest" href="/manifest.webmanifest">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-<style id="app-css">
-@layer properties;@layer theme, base, components, utilities;
-@layer theme {
-  :root, :host {
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    --color-white: #fff;--spacing: 0.25rem;--container-sm: 24rem;--container-md: 28rem;--container-xl: 36rem;--container-2xl: 42rem;--container-3xl: 48rem;--container-6xl: 72rem;
-    --text-xs: 0.75rem;--text-sm: 0.875rem;--text-base: 1rem;--text-lg: 1.125rem;--text-xl: 1.25rem;--text-2xl: 1.5rem;--text-3xl: 1.875rem;--text-4xl: 2.25rem;--text-5xl: 3rem;--text-6xl: 3.75rem;--text-7xl: 4.5rem;
-  }
+<style>
+:root {
+  --bg: #0c1119;
+  --panel: #151d2b;
+  --line: #243046;
+  --text: #e8eef7;
+  --dim: #8a99b0;
+  --ok: #3fd08a;
+  --gold: #f2b84b;
+  --bad: #ff5c6c;
 }
-@layer base {
-  *, ::after, ::before { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
-  html, body { background: #0c1119; color: #e8eef7; font-family: 'Manrope', sans-serif; }
-  a { color: inherit; text-decoration: inherit; }
-  button, input, select { font: inherit; color: inherit; background: transparent; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: linear-gradient(135deg, #0c1119 0%, #0d1b2a 100%);
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
 }
-@layer components {
-  :root { --bg: #0c1119; --panel: #151d2b; --line: #243046; --text: #e8eef7; --dim: #8a99b0; --ok: #3fd08a; --gold: #f2b84b; --bad: #ff5c6c; }
-  .glass { background: rgba(12,17,25,.78); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-  .panel { background: linear-gradient(180deg,var(--panel),#121a28); border: 1px solid var(--line); border-radius: 16px; }
-  .dim { color: var(--dim); } .ok { color: var(--ok); } .bad { color: var(--bad); } .gold { color: var(--gold); }
-  .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 11px; padding: .65rem 1.1rem; cursor: pointer; background: var(--gold); color: #1b1405; border: none; }
-  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
-  .btn.glow { background: rgba(242,184,75,.07); color: var(--gold); border: 1px solid rgba(242,184,75,.55); }
-  input, select { width: 100%; background: var(--bg); border: 1px solid var(--line); border-radius: 11px; padding: .65rem .8rem; color: var(--text); }
-  .fl { position: relative; margin-bottom: 1rem; }
-  .fl input { padding: 1.25rem .9rem .4rem; }
-  .fl label { position: absolute; left: .9rem; top: .85rem; color: var(--dim); pointer-events: none; transition: all .15s; font-size: .85rem; }
-  .fl input:focus + label, .fl input:not(:placeholder-shown) + label { top: .3rem; font-size: .65rem; color: var(--gold); }
-  
-  /* Floating Support Buttons */
-  .fab { width: 52px; height: 52px; border-radius: 99px; display: grid; place-items: center; position: fixed; right: 1rem; z-index: 50; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-  .fab-wa { bottom: 1.5rem; background: #25d366; }
-  .fab-tg { bottom: 5.5rem; background: #27a7e7; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; color: inherit; background: transparent; border: none; }
+
+.glass { background: rgba(12,17,25,.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.panel { background: linear-gradient(180deg, var(--panel), #121a28); border: 1px solid var(--line); border-radius: 16px; }
+.dim { color: var(--dim); } .ok { color: var(--ok); } .bad { color: var(--bad); } .gold { color: var(--gold); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 800; border-radius: 11px; padding: .65rem 1.2rem;
+  cursor: pointer; background: var(--gold); color: #1b1405; transition: transform 0.15s;
 }
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+.btn.glow { background: rgba(242,184,75,.07); color: var(--gold); border: 1px solid rgba(242,184,75,.55); }
+
+.container { max-width: 1150px; margin: 0 auto; padding: 0 1rem; }
+.fl { position: relative; margin-bottom: 1rem; }
+.fl input {
+  width: 100%; background: var(--bg); border: 1px solid var(--line);
+  border-radius: 11px; padding: 1.25rem .9rem .4rem; color: var(--text);
+}
+.fl label {
+  position: absolute; left: .9rem; top: .85rem; color: var(--dim);
+  pointer-events: none; transition: all .15s; font-size: .85rem;
+}
+.fl input:focus + label, .fl input:not(:placeholder-shown) + label {
+  top: .3rem; font-size: .65rem; color: var(--gold);
+}
+
+.fab {
+  width: 52px; height: 52px; border-radius: 99px; display: grid;
+  place-items: center; position: fixed; right: 1rem; z-index: 50;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.fab-wa { bottom: 1.5rem; background: #25d366; }
+.fab-tg { bottom: 5.5rem; background: #27a7e7; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 </style>
 </head>
-<body style="background: linear-gradient(135deg, #0c1119 0%, #0d1b2a 100%); min-height: 100vh;">
+<body>
 
-<header class="glass sticky top-0 z-40" style="padding: 0.8rem 1rem;">
-  <div style="max-width: 1150px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-    <a href="#/" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.1rem;">
-      <span style="background:var(--gold); color:#1b1405; width:32px; height:32px; display:grid; place-items:center; border-radius:8px;">S</span>
+<!-- Header Navigation -->
+<header class="glass sticky top-0" style="position:sticky; top:0; z-index:40; padding: 0.8rem 0;">
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+    <a href="#" onclick="showSection('home')" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.2rem;">
+      <span style="background:var(--gold); color:#1b1405; width:34px; height:34px; display:grid; place-items:center; border-radius:8px;">S</span>
       Share Option
     </a>
-    <div style="display: flex; gap: 0.8rem; align-items: center;">
-      <a href="https://wa.me/YOURNUMBER" target="_blank" class="dim" style="font-size: 0.85rem; display: flex; align-items: center; gap: 0.3rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm4.7 13.8c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6s.7-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4l.8 1.8c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.3.1.5.2.5.4.1.2.1.7-.1 1.2Z"/></svg> WA Support</a>
-      <a href="https://t.me/your_vip_channel" target="_blank" class="dim" style="font-size: 0.85rem; display: flex; align-items: center; gap: 0.3rem;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#27a7e7"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.3 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.3 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.5ZM8.5 13.5l9.3-5.9c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.2-1.9-4.4Z"/></svg> TG Support</a>
+    <nav style="display: flex; gap: 1.2rem; align-items: center; font-size: 0.9rem;">
+      <a href="#" onclick="showSection('home')" class="dim">Home</a>
+      <a href="#" onclick="showSection('plans')" class="dim">Real Plans</a>
+      <a href="https://wa.me/YOURNUMBER" target="_blank" class="dim" style="display:flex; align-items:center; gap:0.3rem;"><span class="ok">●</span> WA Support</a>
+      <a href="https://t.me/your_vip_channel" target="_blank" class="dim" style="display:flex; align-items:center; gap:0.3rem;"><span class="ok">●</span> TG VIP</a>
       
-      <button onclick="showAuthModal('login')" class="btn ghost" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Sign in</button>
-      <button onclick="showAuthModal('register')" class="btn glow" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Launch App / Login</button>
-    </div>
+      <span id="userNav" style="display:none; color: var(--gold); font-weight: 700;"></span>
+      <button id="navLoginBtn" onclick="showAuthModal('login')" class="btn ghost" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Sign in</button>
+      <button id="navRegBtn" onclick="showAuthModal('register')" class="btn glow" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Create Account</button>
+      <button id="navLogoutBtn" onclick="handleLogout()" class="btn ghost" style="display:none; padding: 0.4rem 0.8rem; font-size: 0.85rem;">Logout</button>
+    </nav>
   </div>
 </header>
 
-<main style="max-width: 1150px; margin: 0 auto; padding: 3rem 1rem;">
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: center;">
+<!-- HOME SECTION -->
+<main id="sec-home" class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
     <div>
-      <h1 style="font-size: 2.8rem; font-weight: 800; line-height: 1.1;">Your signals straight to your <span style="color: var(--gold);">Real Broker</span> account.</h1>
-      <p style="color: var(--dim); margin-top: 1rem; font-size: 1.05rem;">
-        Signals straight to your Pocket Option, Quotex, or IQ Option real account. Fees are charged only on realized profit after withdrawal.
+      <h1 style="font-size: 3rem; font-weight: 800; line-height: 1.1;">Real signals directly to your <span style="color: var(--gold);">Real Broker</span>.</h1>
+      <p style="color: var(--dim); margin-top: 1.2rem; font-size: 1.1rem;">
+        No demo accounts. Connect your real Pocket Option, Quotex, or IQ Option account. Zero upfront fees — commission is charged only after you withdraw your profits.
       </p>
       <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-        <button onclick="showAuthModal('register')" class="btn" style="padding: 0.8rem 1.5rem;">Create free account</button>
-        <button onclick="showAuthModal('login')" class="btn ghost" style="padding: 0.8rem 1.5rem;">Sign in</button>
+        <button onclick="showAuthModal('register')" class="btn" style="padding: 0.85rem 1.8rem;">Create Real Account</button>
+        <button onclick="showSection('plans')" class="btn ghost" style="padding: 0.85rem 1.8rem;">Explore Plans</button>
       </div>
     </div>
 
-    <!-- Auth Form Container -->
-    <div id="authContainer" class="panel" style="padding: 2rem;">
-      <h2 id="authTitle" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Create your account</h2>
+    <!-- Interactive Calculator -->
+    <div class="panel" style="padding: 2rem;">
+      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Live Stake Calculator</h3>
+      <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 1.5rem;">Calculate entry stakes based on your trading capital:</p>
       
-      <form id="authForm" onsubmit="handleAuthSubmit(event)">
-        <div id="nameField" class="fl">
-          <input type="text" id="fullName" placeholder=" " />
-          <label for="fullName">Full name</label>
-        </div>
+      <label style="font-size: 0.8rem; color: var(--dim);">Trading Capital (USD)</label>
+      <input type="number" id="capitalInput" value="1000" oninput="calculateStakes()" style="width:100%; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:0.6rem; margin-top:0.3rem; margin-bottom:1.2rem; color:var(--text); font-weight:700;">
+      
+      <div style="display:flex; justify-content:space-between; margin-bottom:0.8rem;">
+        <span class="dim" style="font-size:0.9rem;">Passive (5%-10%):</span>
+        <span id="passiveCalc" class="ok" style="font-weight:700;">$50.00 - $100.00</span>
+      </div>
+      <div style="display:flex; justify-content:space-between;">
+        <span class="dim" style="font-size:0.9rem;">Compounding Ladder:</span>
+        <span id="compoundCalc" class="gold" style="font-weight:700;">$100 → $200 → $300</span>
+      </div>
+    </div>
+  </div>
 
-        <div class="fl">
-          <input type="email" id="email" required placeholder=" " />
-          <label for="email">Email address</label>
-        </div>
-
-        <div class="fl">
-          <input type="password" id="password" required placeholder=" " />
-          <label for="password">Password (8+ characters)</label>
-        </div>
-
-        <div id="authError" style="color: var(--bad); font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
-
-        <button type="submit" id="submitBtn" class="btn" style="width: 100%; padding: 0.8rem; font-size: 1rem;">Create account</button>
-      </form>
-
-      <div style="margin-top: 1.2rem; text-align: center; font-size: 0.85rem; color: var(--dim);">
-        <span id="authSwitchText">Already have an account?</span>
-        <a href="#" id="authSwitchLink" onclick="toggleAuthMode(event)" style="color: var(--gold); font-weight: 700; margin-left: 0.3rem;">Sign in</a>
+  <!-- Real Brokers Links Section -->
+  <div style="margin-top: 5rem;">
+    <h2 style="font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 2rem;">Supported Real Brokers</h2>
+    <div class="grid-3">
+      <div class="panel" style="padding: 1.8rem;">
+        <h3 class="ok" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Pocket Option</h3>
+        <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.2rem;">Automated copy-trading using Master Copy Trade ID. Connect directly to your live real account.</p>
+        <a href="https://pocketoption.com/" target="_blank" class="btn" style="width: 100%;">Register Real Pocket Option</a>
+      </div>
+      <div class="panel" style="padding: 1.8rem;">
+        <h3 class="gold" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Quotex</h3>
+        <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.2rem;">Semi-automated real account signals with instant pop-up execution shortcuts for real trades.</p>
+        <a href="https://qxbroker.com/" target="_blank" class="btn" style="width: 100%;">Register Real Quotex</a>
+      </div>
+      <div class="panel" style="padding: 1.8rem;">
+        <h3 style="color: #27a7e7; font-size: 1.3rem; margin-bottom: 0.5rem;">IQ Option</h3>
+        <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.2rem;">Live signal room integration for real binary options portfolios with dynamic stake management.</p>
+        <a href="https://iqoption.com/" target="_blank" class="btn" style="width: 100%;">Register Real IQ Option</a>
       </div>
     </div>
   </div>
 </main>
 
-<!-- Floating Live Support Widgets -->
+<!-- PLANS SECTION -->
+<main id="sec-plans" class="container" style="display:none; padding-top: 3rem; padding-bottom: 4rem;">
+  <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Choose Your Real Account Strategy</h1>
+  <p class="dim" style="margin-bottom: 2.5rem;">Select how your capital is allocated across live binary options signals:</p>
+  
+  <div class="grid-3">
+    <div class="panel" style="padding: 2rem;">
+      <h3 style="font-size: 1.4rem; font-weight: 700;">🛡️ Passive Strategy</h3>
+      <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;" class="ok">5% - 10%</div>
+      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Fixed stake per trade. Platform commission: 20% on realized profits only.</p>
+      <button onclick="selectPlan('PASSIVE')" class="btn" style="width:100%;">Activate Passive</button>
+    </div>
+    <div class="panel" style="padding: 2rem;">
+      <h3 style="font-size: 1.4rem; font-weight: 700;">🚀 Compounding Ladder</h3>
+      <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;" class="gold">10% → 30%</div>
+      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Stakes increase on wins (10% → 20% → 30%) and reset on loss. Commission: 40%.</p>
+      <button onclick="selectPlan('COMPOUNDING')" class="btn" style="width:100%;">Activate Compounding</button>
+    </div>
+    <div class="panel" style="padding: 2rem;">
+      <h3 style="font-size: 1.4rem; font-weight: 700;">⚡ Power Share Pool</h3>
+      <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0; color: #27a7e7;">Pool Share</div>
+      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Master account pool. Own a live percentage share of the master balance. Commission: 30%.</p>
+      <button onclick="selectPlan('POWER_POOL')" class="btn ghost" style="width:100%;">Request Access</button>
+    </div>
+  </div>
+</main>
+
+<!-- AUTH MODAL / SECTION -->
+<main id="sec-auth" class="container" style="display:none; padding-top: 4rem; padding-bottom: 4rem;">
+  <div class="panel" style="max-width: 440px; margin: 0 auto; padding: 2.5rem;">
+    <h2 id="authTitle" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; text-align:center;">Create Your Real Account</h2>
+    
+    <form id="realAuthForm" onsubmit="handleAuthSubmit(event)">
+      <div id="nameField" class="fl">
+        <input type="text" id="fullName" placeholder=" " />
+        <label for="fullName">Full Name</label>
+      </div>
+
+      <div class="fl">
+        <input type="email" id="email" required placeholder=" " />
+        <label for="email">Real Email Address</label>
+      </div>
+
+      <div class="fl">
+        <input type="password" id="password" required placeholder=" " />
+        <label for="password">Password (8+ characters)</label>
+      </div>
+
+      <div id="authError" style="color: var(--bad); font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
+
+      <button type="submit" id="submitBtn" class="btn" style="width: 100%; padding: 0.85rem; font-size: 1rem;">Create Account</button>
+    </form>
+
+    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem; color: var(--dim);">
+      <span id="authSwitchText">Already registered?</span>
+      <a href="#" id="authSwitchLink" onclick="toggleAuthMode(event)" style="color: var(--gold); font-weight: 700; margin-left: 0.3rem;">Sign in</a>
+    </div>
+  </div>
+</main>
+
+<!-- USER DASHBOARD SECTION -->
+<main id="sec-dashboard" class="container" style="display:none; padding-top: 3rem; padding-bottom: 4rem;">
+  <div class="panel" style="padding: 2rem; margin-bottom: 2rem;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <h2 style="font-size: 1.8rem; font-weight: 800;">Real Account Dashboard</h2>
+        <p class="dim" id="dashUserEmail">Connected Real User</p>
+      </div>
+      <div style="text-align:right;">
+        <span class="dim" style="font-size:0.85rem;">Account Status</span>
+        <div class="ok" style="font-size:1.2rem; font-weight:800;">ACTIVE (REAL)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-bottom: 2rem;">
+    <div class="panel" style="padding: 1.5rem;">
+      <span class="dim" style="font-size: 0.85rem;">Real Capital Balance</span>
+      <div style="font-size: 1.8rem; font-weight: 800;" class="gold">$1,000.00</div>
+    </div>
+    <div class="panel" style="padding: 1.5rem;">
+      <span class="dim" style="font-size: 0.85rem;">Active Strategy</span>
+      <div style="font-size: 1.8rem; font-weight: 800;" id="dashStrategy" class="ok">PASSIVE (5%)</div>
+    </div>
+    <div class="panel" style="padding: 1.5rem;">
+      <span class="dim" style="font-size: 0.85rem;">Unpaid Fees ($50 Safeguard Limit)</span>
+      <div style="font-size: 1.8rem; font-weight: 800;">$0.00</div>
+    </div>
+  </div>
+
+  <div class="panel" style="padding: 2rem;">
+    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">Live Broker Signal Stream</h3>
+    <p class="dim" style="font-size: 0.9rem;">Waiting for new verified signals from VIP Telegram Channel...</p>
+  </div>
+</main>
+
+<!-- Support Widgets -->
 <a href="https://wa.me/YOURNUMBER" target="_blank" class="fab fab-wa" aria-label="WhatsApp Support">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm4.7 13.8c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6s.7-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4l.8 1.8c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.3.1.5.2.5.4.1.2.1.7-.1 1.2Z"/></svg>
 </a>
@@ -117,21 +250,35 @@
 </a>
 
 <script>
-let currentMode = 'register';
+let authMode = 'register';
+let currentUser = null;
+
+function showSection(secId) {
+  document.querySelectorAll('main').forEach(el => el.style.display = 'none');
+  const target = document.getElementById('sec-' + secId);
+  if (target) target.style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function calculateStakes() {
+  const cap = parseFloat(document.getElementById('capitalInput').value) || 0;
+  document.getElementById('passiveCalc').innerText = `$${(cap * 0.05).toFixed(2)} - $${(cap * 0.10).toFixed(2)}`;
+  document.getElementById('compoundCalc').innerText = `$${(cap * 0.10).toFixed(0)} → $${(cap * 0.20).toFixed(0)} → $${(cap * 0.30).toFixed(0)}`;
+}
 
 function showAuthModal(mode) {
-  currentMode = mode;
-  updateFormUI();
-  document.getElementById('authContainer').scrollIntoView({ behavior: 'smooth' });
+  authMode = mode;
+  updateAuthUI();
+  showSection('auth');
 }
 
 function toggleAuthMode(e) {
   e.preventDefault();
-  currentMode = currentMode === 'register' ? 'login' : 'register';
-  updateFormUI();
+  authMode = authMode === 'register' ? 'login' : 'register';
+  updateAuthUI();
 }
 
-function updateFormUI() {
+function updateAuthUI() {
   const title = document.getElementById('authTitle');
   const nameField = document.getElementById('nameField');
   const submitBtn = document.getElementById('submitBtn');
@@ -141,14 +288,14 @@ function updateFormUI() {
 
   errorBox.style.display = 'none';
 
-  if (currentMode === 'register') {
-    title.innerText = 'Create your account';
+  if (authMode === 'register') {
+    title.innerText = 'Create Your Real Account';
     nameField.style.display = 'block';
-    submitBtn.innerText = 'Create account';
-    switchText.innerText = 'Already have an account?';
+    submitBtn.innerText = 'Create Account';
+    switchText.innerText = 'Already registered?';
     switchLink.innerText = 'Sign in';
   } else {
-    title.innerText = 'Sign in to Share Option';
+    title.innerText = 'Sign in to Real Account';
     nameField.style.display = 'none';
     submitBtn.innerText = 'Sign in';
     switchText.innerText = "Don't have an account?";
@@ -160,40 +307,81 @@ async function handleAuthSubmit(event) {
   event.preventDefault();
   const submitBtn = document.getElementById('submitBtn');
   const errorBox = document.getElementById('authError');
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const fullName = document.getElementById('fullName').value;
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+  const fullName = document.getElementById('fullName').value.trim();
 
   submitBtn.disabled = true;
-  submitBtn.innerText = 'Processing...';
+  submitBtn.innerText = 'Authenticating...';
   errorBox.style.display = 'none';
 
-  const endpoint = currentMode === 'register' ? '/api/register' : '/api/login';
-  const payload = currentMode === 'register' ? { email, password, fullName } : { email, password };
+  const endpoint = authMode === 'register' ? '/api/auth/register' : '/api/auth/login';
+  const payload = authMode === 'register' ? { email, password, fullName } : { email, password };
 
   try {
-    const response = await fetch(endpoint, {
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    const data = await response.json();
-    if (response.ok) {
-      alert(currentMode === 'register' ? 'Real Account created successfully!' : 'Signed in successfully!');
-      if (data.token) localStorage.setItem('token', data.token);
-      window.location.reload();
-    } else {
-      throw new Error(data.message || data.detail || 'Authentication failed.');
-    }
+    
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || data.message || 'Authentication error.');
+
+    currentUser = { email: email, name: fullName || email.split('@')[0] };
+    localStorage.setItem('so_user', JSON.stringify(currentUser));
+    updateUserNav();
+    showSection('dashboard');
   } catch (err) {
     errorBox.innerText = err.message;
     errorBox.style.display = 'block';
   } finally {
     submitBtn.disabled = false;
-    submitBtn.innerText = currentMode === 'register' ? 'Create account' : 'Sign in';
+    submitBtn.innerText = authMode === 'register' ? 'Create Account' : 'Sign in';
   }
 }
-</script>
 
+function updateUserNav() {
+  if (currentUser) {
+    document.getElementById('userNav').innerText = currentUser.email;
+    document.getElementById('userNav').style.display = 'inline';
+    document.getElementById('navLoginBtn').style.display = 'none';
+    document.getElementById('navRegBtn').style.display = 'none';
+    document.getElementById('navLogoutBtn').style.display = 'inline-flex';
+    document.getElementById('dashUserEmail').innerText = currentUser.email;
+  } else {
+    document.getElementById('userNav').style.display = 'none';
+    document.getElementById('navLoginBtn').style.display = 'inline-flex';
+    document.getElementById('navRegBtn').style.display = 'inline-flex';
+    document.getElementById('navLogoutBtn').style.display = 'none';
+  }
+}
+
+function handleLogout() {
+  currentUser = null;
+  localStorage.removeItem('so_user');
+  updateUserNav();
+  showSection('home');
+}
+
+function selectPlan(planName) {
+  if (!currentUser) {
+    showAuthModal('register');
+    return;
+  }
+  document.getElementById('dashStrategy').innerText = planName;
+  showSection('dashboard');
+}
+
+// Initial state load
+const savedUser = localStorage.getItem('so_user');
+if (savedUser) {
+  try {
+    currentUser = JSON.parse(savedUser);
+    updateUserNav();
+  } catch (e) {}
+}
+calculateStakes();
+</script>
 </body>
 </html>
