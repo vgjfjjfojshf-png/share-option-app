@@ -1,181 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0c1119">
-<title>Share Option - Live Trading Platform</title>
-<link rel="manifest" href="/manifest.webmanifest">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<meta name="description" content="Share Option - High-performance real account trading signaling platform.">
+<title>Share Option - Enterprise Real Signaling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #0c1119;
-  --panel: #151d2b;
-  --line: #243046;
-  --text: #e8eef7;
-  --dim: #8a99b0;
-  --ok: #3fd08a;
-  --gold: #f2b84b;
-  --bad: #ff5c6c;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: linear-gradient(135deg, #0c1119 0%, #0d1b2a 100%);
-  color: var(--text);
-  font-family: 'Manrope', sans-serif;
-  line-height: 1.5;
-  min-height: 100vh;
-}
-a { color: inherit; text-decoration: none; }
-button, input, select { font: inherit; color: inherit; background: transparent; border: none; }
+  :root {
+    --bg: #0c1119;
+    --panel: #151d2b;
+    --line: #243046;
+    --text: #e8eef7;
+    --dim: #8a99b0;
+    --ok: #3fd08a;
+    --gold: #f2b84b;
+    --bad: #ff5c6c;
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
 
-.glass { background: rgba(12,17,25,.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-.panel { background: linear-gradient(180deg, var(--panel), #121a28); border: 1px solid var(--line); border-radius: 16px; }
-.dim { color: var(--dim); } .ok { color: var(--ok); } .bad { color: var(--bad); } .gold { color: var(--gold); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    background-color: var(--bg);
+    background-image: radial-gradient(circle at 50% 0%, #152238 0%, #0c1119 75%);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding-bottom: var(--safe-bottom);
+    overflow-x: hidden;
+  }
 
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  font-weight: 800; border-radius: 11px; padding: .65rem 1.2rem;
-  cursor: pointer; background: var(--gold); color: #1b1405; transition: transform 0.15s;
-}
-.btn:hover { transform: translateY(-2px); }
-.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
-.btn.glow { background: rgba(242,184,75,.07); color: var(--gold); border: 1px solid rgba(242,184,75,.55); }
+  h1, h2, h3, h4, .brand-font {
+    font-family: 'Space Grotesk', sans-serif;
+  }
 
-.container { max-width: 1150px; margin: 0 auto; padding: 0 1rem; }
-.fl { position: relative; margin-bottom: 1rem; }
-.fl input {
-  width: 100%; background: var(--bg); border: 1px solid var(--line);
-  border-radius: 11px; padding: 1.25rem .9rem .4rem; color: var(--text);
-}
-.fl label {
-  position: absolute; left: .9rem; top: .85rem; color: var(--dim);
-  pointer-events: none; transition: all .15s; font-size: .85rem;
-}
-.fl input:focus + label, .fl input:not(:placeholder-shown) + label {
-  top: .3rem; font-size: .65rem; color: var(--gold);
-}
+  a { color: inherit; text-decoration: none; }
+  button, input, select { font: inherit; color: inherit; background: transparent; border: none; outline: none; }
 
-.fab {
-  width: 52px; height: 52px; border-radius: 99px; display: grid;
-  place-items: center; position: fixed; right: 1rem; z-index: 50;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-.fab-wa { bottom: 1.5rem; background: #25d366; }
-.fab-tg { bottom: 5.5rem; background: #27a7e7; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+  .glass { background: rgba(12, 17, 25, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .panel { background: linear-gradient(180deg, var(--panel), #111722); border: 1px solid var(--line); border-radius: 16px; transition: border-color 0.25s, transform 0.25s; }
+  .panel:hover { border-color: rgba(242, 184, 75, 0.35); }
+  
+  .dim { color: var(--dim); } .ok { color: var(--ok); } .bad { color: var(--bad); } .gold { color: var(--gold); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; border-radius: 10px; padding: 0.7rem 1.4rem;
+    cursor: pointer; background: var(--gold); color: #140e03;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px -4px rgba(242, 184, 75, 0.35); }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn.ghost:hover { border-color: var(--gold); color: var(--gold); box-shadow: none; }
+  .btn.glow { background: rgba(242, 184, 75, 0.08); color: var(--gold); border: 1px solid rgba(242, 184, 75, 0.4); }
+
+  .fl { position: relative; margin-bottom: 1.25rem; }
+  .fl input {
+    width: 100%; background: var(--bg); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.3rem 0.9rem 0.4rem; color: var(--text);
+    transition: border-color 0.2s;
+  }
+  .fl input:focus { border-color: var(--gold); }
+  .fl label {
+    position: absolute; left: 0.9rem; top: 0.85rem; color: var(--dim);
+    pointer-events: none; transition: all 0.15s ease-out; font-size: 0.85rem;
+  }
+  .fl input:focus + label, .fl input:not(:placeholder-shown) + label {
+    top: 0.3rem; font-size: 0.65rem; color: var(--gold); font-weight: 700;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.25rem 0.65rem; border-radius: 99px; font-size: 0.75rem; font-weight: 700;
+  }
+  .badge-ok { background: rgba(63, 208, 138, 0.12); color: var(--ok); border: 1px solid rgba(63, 208, 138, 0.3); }
+  .badge-gold { background: rgba(242, 184, 75, 0.12); color: var(--gold); border: 1px solid rgba(242, 184, 75, 0.3); }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1.5rem; }
+  
+  .fab-container { position: fixed; right: 1.5rem; bottom: calc(1.5rem + var(--safe-bottom)); z-index: 50; display: flex; flex-direction: column; gap: 0.75rem; }
+  .fab { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 6px 16px rgba(0,0,0,0.4); transition: transform 0.2s; }
+  .fab:hover { transform: scale(1.1); }
+  .fab-wa { background: #25d366; } .fab-tg { background: #27a7e7; }
+
+  table { width: 100%; border-collapse: collapse; text-align: left; margin-top: 1rem; }
+  th { background: rgba(36, 48, 70, 0.4); padding: 0.75rem 1rem; font-size: 0.8rem; color: var(--dim); border-bottom: 1px solid var(--line); }
+  td { padding: 0.9rem 1rem; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2.2rem !important; }
+    nav .hide-mobile { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Header Navigation -->
-<header class="glass sticky top-0" style="position:sticky; top:0; z-index:40; padding: 0.8rem 0;">
+<header class="glass" style="position: sticky; top: 0; z-index: 40; padding: 0.85rem 0;">
   <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-    <a href="#" onclick="showSection('home')" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 800; font-size: 1.2rem;">
-      <span style="background:var(--gold); color:#1b1405; width:34px; height:34px; display:grid; place-items:center; border-radius:8px;">S</span>
+    <a href="#" onclick="showSection('home')" style="display: flex; align-items: center; gap: 0.6rem; font-size: 1.25rem;" class="brand-font">
+      <span style="background: var(--gold); color: #140e03; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 8px; font-weight: 800;">S</span>
       Share Option
     </a>
-    <nav style="display: flex; gap: 1.2rem; align-items: center; font-size: 0.9rem;">
-      <a href="#" onclick="showSection('home')" class="dim">Home</a>
-      <a href="#" onclick="showSection('plans')" class="dim">Real Plans</a>
-      <a href="https://wa.me/YOURNUMBER" target="_blank" class="dim" style="display:flex; align-items:center; gap:0.3rem;"><span class="ok">●</span> WA Support</a>
-      <a href="https://t.me/your_vip_channel" target="_blank" class="dim" style="display:flex; align-items:center; gap:0.3rem;"><span class="ok">●</span> TG VIP</a>
+    <nav style="display: flex; gap: 1.5rem; align-items: center; font-size: 0.9rem;">
+      <a href="#" onclick="showSection('home')" class="dim hide-mobile">Home</a>
+      <a href="#features" onclick="showSection('home')" class="dim hide-mobile">Features</a>
+      <a href="#" onclick="showSection('plans')" class="dim hide-mobile">Real Plans</a>
       
-      <span id="userNav" style="display:none; color: var(--gold); font-weight: 700;"></span>
-      <button id="navLoginBtn" onclick="showAuthModal('login')" class="btn ghost" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Sign in</button>
-      <button id="navRegBtn" onclick="showAuthModal('register')" class="btn glow" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Create Account</button>
-      <button id="navLogoutBtn" onclick="handleLogout()" class="btn ghost" style="display:none; padding: 0.4rem 0.8rem; font-size: 0.85rem;">Logout</button>
+      <span id="userNavDisplay" style="display:none; color: var(--gold); font-weight: 700;"></span>
+      <button id="navLoginBtn" onclick="showAuthModal('login')" class="btn ghost" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;">Sign In</button>
+      <button id="navRegBtn" onclick="showAuthModal('register')" class="btn glow" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;">Create Account</button>
+      <button id="navDashBtn" onclick="showSection('dashboard')" class="btn glow" style="display:none; padding: 0.45rem 0.9rem; font-size: 0.85rem;">Dashboard</button>
+      <button id="navLogoutBtn" onclick="handleLogout()" class="btn ghost" style="display:none; padding: 0.45rem 0.9rem; font-size: 0.85rem;">Logout</button>
     </nav>
   </div>
 </header>
 
-<!-- HOME SECTION -->
-<main id="sec-home" class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center;">
+<main id="sec-home" class="container" style="padding-top: 4rem; padding-bottom: 5rem;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
     <div>
-      <h1 style="font-size: 3rem; font-weight: 800; line-height: 1.1;">Real signals directly to your <span style="color: var(--gold);">Real Broker</span>.</h1>
-      <p style="color: var(--dim); margin-top: 1.2rem; font-size: 1.1rem;">
-        No demo accounts. Connect your real Pocket Option, Quotex, or IQ Option account. Zero upfront fees — commission is charged only after you withdraw your profits.
+      <div class="badge badge-gold" style="margin-bottom: 1.2rem;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--gold);"></span> Live Real-Account Execution
+      </div>
+      <h1 class="hero-title" style="font-size: 3.2rem; font-weight: 700; line-height: 1.15; margin-bottom: 1.2rem;">
+        Automated signals delivered to your <span style="color: var(--gold);">Real Broker</span>.
+      </h1>
+      <p class="dim" style="font-size: 1.1rem; margin-bottom: 2rem;">
+        No demo environment delays. Connect your real Pocket Option, Quotex, or IQ Option portfolio. Zero upfront subscription—commission fees are deducted only after verified profits.
       </p>
-      <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
         <button onclick="showAuthModal('register')" class="btn" style="padding: 0.85rem 1.8rem;">Create Real Account</button>
-        <button onclick="showSection('plans')" class="btn ghost" style="padding: 0.85rem 1.8rem;">Explore Plans</button>
+        <button onclick="showSection('plans')" class="btn ghost" style="padding: 0.85rem 1.8rem;">View Risk Strategies</button>
       </div>
     </div>
 
-    <!-- Interactive Calculator -->
-    <div class="panel" style="padding: 2rem;">
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Live Stake Calculator</h3>
-      <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 1.5rem;">Calculate entry stakes based on your trading capital:</p>
+    <div class="panel" style="padding: 2.2rem;">
+      <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;">Dynamic Capital Calculator</h3>
+      <p class="dim" style="font-size: 0.85rem; margin-bottom: 1.5rem;">Adjust capital to model position sizing and return thresholds:</p>
       
-      <label style="font-size: 0.8rem; color: var(--dim);">Trading Capital (USD)</label>
-      <input type="number" id="capitalInput" value="1000" oninput="calculateStakes()" style="width:100%; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:0.6rem; margin-top:0.3rem; margin-bottom:1.2rem; color:var(--text); font-weight:700;">
+      <div style="margin-bottom: 1.2rem;">
+        <label for="capitalInput" style="font-size: 0.8rem; color: var(--dim); display: block; margin-bottom: 0.4rem;">Trading Capital (USD)</label>
+        <input type="number" id="capitalInput" value="1000" min="50" oninput="calculateStakes()" style="width:100%; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:0.75rem; color:var(--text); font-weight:700; font-size: 1.1rem;">
+      </div>
       
-      <div style="display:flex; justify-content:space-between; margin-bottom:0.8rem;">
-        <span class="dim" style="font-size:0.9rem;">Passive (5%-10%):</span>
-        <span id="passiveCalc" class="ok" style="font-weight:700;">$50.00 - $100.00</span>
+      <div style="background: rgba(12,17,25,0.6); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; margin-bottom: 1.5rem;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
+          <span class="dim" style="font-size:0.9rem;">Passive (5% - 10% Stake):</span>
+          <span id="calcPassive" class="ok" style="font-weight:700;">$50.00 - $100.00</span>
+        </div>
+        <div style="display:flex; justify-content:space-between;">
+          <span class="dim" style="font-size:0.9rem;">Compounding Progression:</span>
+          <span id="calcCompound" class="gold" style="font-weight:700;">$100 → $200 → $300</span>
+        </div>
       </div>
-      <div style="display:flex; justify-content:space-between;">
-        <span class="dim" style="font-size:0.9rem;">Compounding Ladder:</span>
-        <span id="compoundCalc" class="gold" style="font-weight:700;">$100 → $200 → $300</span>
-      </div>
+      
+      <button onclick="showAuthModal('register')" class="btn glow" style="width:100%;">Apply To Live Account</button>
     </div>
   </div>
 
-  <!-- Real Brokers Links Section -->
-  <div style="margin-top: 5rem;">
-    <h2 style="font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 2rem;">Supported Real Brokers</h2>
+  <div id="features" style="margin-top: 6rem;">
+    <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 3rem;">Engineered for Precision & Speed</h2>
     <div class="grid-3">
-      <div class="panel" style="padding: 1.8rem;">
-        <h3 class="ok" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Pocket Option</h3>
-        <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.2rem;">Automated copy-trading using Master Copy Trade ID. Connect directly to your live real account.</p>
-        <a href="https://pocketoption.com/" target="_blank" class="btn" style="width: 100%;">Register Real Pocket Option</a>
+      <div class="panel" style="padding: 2rem;">
+        <div style="font-size: 1.8rem; margin-bottom: 1rem;">⚡</div>
+        <h3 style="font-size: 1.25rem; margin-bottom: 0.6rem;">Low-Latency Dispatch</h3>
+        <p class="dim" style="font-size: 0.9rem;">Signals parsed from our VIP master room are pushed within milliseconds to broker execution gateways.</p>
       </div>
-      <div class="panel" style="padding: 1.8rem;">
-        <h3 class="gold" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Quotex</h3>
-        <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.2rem;">Semi-automated real account signals with instant pop-up execution shortcuts for real trades.</p>
-        <a href="https://qxbroker.com/" target="_blank" class="btn" style="width: 100%;">Register Real Quotex</a>
+      <div class="panel" style="padding: 2rem;">
+        <div style="font-size: 1.8rem; margin-bottom: 1rem;">🛡️</div>
+        <h3 style="font-size: 1.25rem; margin-bottom: 0.6rem;">Risk Limit Safeguards</h3>
+        <p class="dim" style="font-size: 0.9rem;">Automated circuit breakers lock trading if account drawdown exceeds your pre-set daily stop limit.</p>
       </div>
-      <div class="panel" style="padding: 1.8rem;">
-        <h3 style="color: #27a7e7; font-size: 1.3rem; margin-bottom: 0.5rem;">IQ Option</h3>
-        <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.2rem;">Live signal room integration for real binary options portfolios with dynamic stake management.</p>
-        <a href="https://iqoption.com/" target="_blank" class="btn" style="width: 100%;">Register Real IQ Option</a>
+      <div class="panel" style="padding: 2rem;">
+        <div style="font-size: 1.8rem; margin-bottom: 1rem;">📈</div>
+        <h3 style="font-size: 1.25rem; margin-bottom: 0.6rem;">Profit-Only Fees</h3>
+        <p class="dim" style="font-size: 0.9rem;">No monthly subscription fees. We charge a fair performance fee only after successful profit withdrawals.</p>
       </div>
     </div>
   </div>
 </main>
 
-<!-- PLANS SECTION -->
-<main id="sec-plans" class="container" style="display:none; padding-top: 3rem; padding-bottom: 4rem;">
-  <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Choose Your Real Account Strategy</h1>
-  <p class="dim" style="margin-bottom: 2.5rem;">Select how your capital is allocated across live binary options signals:</p>
+<main id="sec-plans" class="container" style="display:none; padding-top: 4rem; padding-bottom: 5rem;">
+  <h1 style="font-size: 2.5rem; margin-bottom: 0.8rem;">Real Account Execution Strategies</h1>
+  <p class="dim" style="margin-bottom: 3rem;">Configure how binary options signals execute against your broker balance:</p>
   
   <div class="grid-3">
-    <div class="panel" style="padding: 2rem;">
-      <h3 style="font-size: 1.4rem; font-weight: 700;">🛡️ Passive Strategy</h3>
-      <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;" class="ok">5% - 10%</div>
-      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Fixed stake per trade. Platform commission: 20% on realized profits only.</p>
-      <button onclick="selectPlan('PASSIVE')" class="btn" style="width:100%;">Activate Passive</button>
+    <div class="panel" style="padding: 2.2rem;">
+      <h3 style="font-size: 1.4rem;">🛡️ Conservative Passive</h3>
+      <div style="font-size: 2.2rem; margin: 1rem 0;" class="ok brand-font">5% - 10%</div>
+      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.8rem;">Fixed percentage stake per signal. Ideal for consistent risk preservation. Commission fee: 20% on profit.</p>
+      <button onclick="selectPlan('PASSIVE')" class="btn" style="width:100%;">Select Conservative</button>
     </div>
-    <div class="panel" style="padding: 2rem;">
-      <h3 style="font-size: 1.4rem; font-weight: 700;">🚀 Compounding Ladder</h3>
-      <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;" class="gold">10% → 30%</div>
-      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Stakes increase on wins (10% → 20% → 30%) and reset on loss. Commission: 40%.</p>
-      <button onclick="selectPlan('COMPOUNDING')" class="btn" style="width:100%;">Activate Compounding</button>
+    <div class="panel" style="padding: 2.2rem;">
+      <h3 style="font-size: 1.4rem;">🚀 Aggressive Compounding</h3>
+      <div style="font-size: 2.2rem; margin: 1rem 0;" class="gold brand-font">10% → 30%</div>
+      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.8rem;">Scales stake size up on consecutive winning signals and resets on drawdown. Commission fee: 40% on profit.</p>
+      <button onclick="selectPlan('COMPOUNDING')" class="btn" style="width:100%;">Select Compounding</button>
     </div>
-    <div class="panel" style="padding: 2rem;">
-      <h3 style="font-size: 1.4rem; font-weight: 700;">⚡ Power Share Pool</h3>
-      <div style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0; color: #27a7e7;">Pool Share</div>
-      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Master account pool. Own a live percentage share of the master balance. Commission: 30%.</p>
-      <button onclick="selectPlan('POWER_POOL')" class="btn ghost" style="width:100%;">Request Access</button>
+    <div class="panel" style="padding: 2.2rem;">
+      <h3 style="font-size: 1.4rem;">⚡ Master Pool Share</h3>
+      <div style="font-size: 2.2rem; margin: 1rem 0; color: #27a7e7;" class="brand-font">Pool Allocation</div>
+      <p class="dim" style="font-size: 0.9rem; margin-bottom: 1.8rem;">Mirror trades proportionally from our primary liquidity pool. Commission fee: 30% on profit.</p>
+      <button onclick="selectPlan('POWER_POOL')" class="btn ghost" style="width:100%;">Request Pool Access</button>
     </div>
   </div>
 </main>
 
-<!-- AUTH MODAL / SECTION -->
-<main id="sec-auth" class="container" style="display:none; padding-top: 4rem; padding-bottom: 4rem;">
+<main id="sec-auth" class="container" style="display:none; padding-top: 5rem; padding-bottom: 5rem;">
   <div class="panel" style="max-width: 440px; margin: 0 auto; padding: 2.5rem;">
-    <h2 id="authTitle" style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; text-align:center;">Create Your Real Account</h2>
+    <h2 id="authTitle" style="font-size: 1.8rem; text-align:center; margin-bottom: 1.5rem;">Create Your Real Account</h2>
     
     <form id="realAuthForm" onsubmit="handleAuthSubmit(event)">
       <div id="nameField" class="fl">
@@ -185,69 +223,103 @@ button, input, select { font: inherit; color: inherit; background: transparent; 
 
       <div class="fl">
         <input type="email" id="email" required placeholder=" " />
-        <label for="email">Real Email Address</label>
+        <label for="email">Email Address</label>
       </div>
 
       <div class="fl">
-        <input type="password" id="password" required placeholder=" " />
+        <input type="password" id="password" required minlength="8" placeholder=" " />
         <label for="password">Password (8+ characters)</label>
       </div>
 
-      <div id="authError" style="color: var(--bad); font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
+      <div id="authError" style="color: var(--bad); font-size: 0.85rem; margin-bottom: 1.2rem; display: none; background: rgba(255,92,108,0.1); border: 1px solid rgba(255,92,108,0.3); border-radius: 8px; padding: 0.6rem;"></div>
 
-      <button type="submit" id="submitBtn" class="btn" style="width: 100%; padding: 0.85rem; font-size: 1rem;">Create Account</button>
+      <button type="submit" id="submitBtn" class="btn" style="width: 100%; padding: 0.85rem;">Create Account</button>
     </form>
 
-    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem; color: var(--dim);">
+    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem;" class="dim">
       <span id="authSwitchText">Already registered?</span>
       <a href="#" id="authSwitchLink" onclick="toggleAuthMode(event)" style="color: var(--gold); font-weight: 700; margin-left: 0.3rem;">Sign in</a>
     </div>
   </div>
 </main>
 
-<!-- USER DASHBOARD SECTION -->
-<main id="sec-dashboard" class="container" style="display:none; padding-top: 3rem; padding-bottom: 4rem;">
+<main id="sec-dashboard" class="container" style="display:none; padding-top: 3.5rem; padding-bottom: 5rem;">
   <div class="panel" style="padding: 2rem; margin-bottom: 2rem;">
     <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
       <div>
-        <h2 style="font-size: 1.8rem; font-weight: 800;">Real Account Dashboard</h2>
-        <p class="dim" id="dashUserEmail">Connected Real User</p>
+        <h2 style="font-size: 1.8rem;">Live Account Portal</h2>
+        <p class="dim" id="dashUserEmail">User: loading...</p>
       </div>
-      <div style="text-align:right;">
-        <span class="dim" style="font-size:0.85rem;">Account Status</span>
-        <div class="ok" style="font-size:1.2rem; font-weight:800;">ACTIVE (REAL)</div>
+      <div class="badge badge-ok" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+        ● SYSTEM LIVE & CONNECTED
       </div>
     </div>
   </div>
 
-  <div class="grid-3" style="margin-bottom: 2rem;">
+  <div class="grid-3" style="margin-bottom: 2.5rem;">
     <div class="panel" style="padding: 1.5rem;">
-      <span class="dim" style="font-size: 0.85rem;">Real Capital Balance</span>
-      <div style="font-size: 1.8rem; font-weight: 800;" class="gold">$1,000.00</div>
+      <span class="dim" style="font-size: 0.85rem;">Connected Real Balance</span>
+      <div style="font-size: 2rem; font-weight: 700; margin-top: 0.4rem;" class="gold brand-font" id="dashBalance">$1,000.00</div>
     </div>
     <div class="panel" style="padding: 1.5rem;">
-      <span class="dim" style="font-size: 0.85rem;">Active Strategy</span>
-      <div style="font-size: 1.8rem; font-weight: 800;" id="dashStrategy" class="ok">PASSIVE (5%)</div>
+      <span class="dim" style="font-size: 0.85rem;">Active Execution Strategy</span>
+      <div style="font-size: 1.4rem; font-weight: 700; margin-top: 0.4rem;" class="ok brand-font" id="dashStrategy">PASSIVE</div>
     </div>
     <div class="panel" style="padding: 1.5rem;">
-      <span class="dim" style="font-size: 0.85rem;">Unpaid Fees ($50 Safeguard Limit)</span>
-      <div style="font-size: 1.8rem; font-weight: 800;">$0.00</div>
+      <span class="dim" style="font-size: 0.85rem;">Pending Profit Fees</span>
+      <div style="font-size: 2rem; font-weight: 700; margin-top: 0.4rem;" class="brand-font">$0.00</div>
     </div>
   </div>
 
   <div class="panel" style="padding: 2rem;">
-    <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">Live Broker Signal Stream</h3>
-    <p class="dim" style="font-size: 0.9rem;">Waiting for new verified signals from VIP Telegram Channel...</p>
+    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Recent Signal Executions</h3>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>TIMESTAMP</th>
+            <th>ASSET PAIR</th>
+            <th>DIRECTION</th>
+            <th>STAKE</th>
+            <th>RESULT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-11-07 18:42</td>
+            <td>EUR/USD (OTC)</td>
+            <td><span class="ok" style="font-weight:700;">CALL ▲</span></td>
+            <td>$50.00</td>
+            <td><span class="badge badge-ok">WIN (+$46.00)</span></td>
+          </tr>
+          <tr>
+            <td>2026-11-07 17:15</td>
+            <td>GBP/JPY</td>
+            <td><span class="bad" style="font-weight:700;">PUT ▼</span></td>
+            <td>$50.00</td>
+            <td><span class="badge badge-ok">WIN (+$45.50)</span></td>
+          </tr>
+          <tr>
+            <td>2026-11-07 15:30</td>
+            <td>USD/CAD</td>
+            <td><span class="ok" style="font-weight:700;">CALL ▲</span></td>
+            <td>$50.00</td>
+            <td><span class="badge badge-gold">REFUND ($0.00)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </main>
 
-<!-- Support Widgets -->
-<a href="https://wa.me/YOURNUMBER" target="_blank" class="fab fab-wa" aria-label="WhatsApp Support">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm4.7 13.8c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6s.7-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4l.8 1.8c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.3.1.5.2.5.4.1.2.1.7-.1 1.2Z"/></svg>
-</a>
-<a href="https://t.me/your_vip_channel" target="_blank" class="fab fab-tg" aria-label="Telegram Support">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.3 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.3 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.5ZM8.5 13.5l9.3-5.9c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.2-1.9-4.4Z"/></svg>
-</a>
+<div class="fab-container">
+  <a href="https://t.me/your_vip_channel" target="_blank" class="fab fab-tg" aria-label="Telegram Support">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M21.5 3.5L2.8 10.7c-1.3.5-1.3 1.3-.2 1.6l4.8 1.5 1.8 5.6c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.3 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.3-1.5ZM8.5 13.5l9.3-5.9c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.2-1.9-4.4Z"/></svg>
+  </a>
+  <a href="https://wa.me/YOURNUMBER" target="_blank" class="fab fab-wa" aria-label="WhatsApp Support">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm4.7 13.8c-.2.6-1.2 1.1-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6s.7-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .5.4l.8 1.8c.1.2.1.4 0 .5l-.4.5-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.7.8c.3.1.5.2.5.4.1.2.1.7-.1 1.2Z"/></svg>
+  </a>
+</div>
 
 <script>
 let authMode = 'register';
@@ -262,8 +334,8 @@ function showSection(secId) {
 
 function calculateStakes() {
   const cap = parseFloat(document.getElementById('capitalInput').value) || 0;
-  document.getElementById('passiveCalc').innerText = `$${(cap * 0.05).toFixed(2)} - $${(cap * 0.10).toFixed(2)}`;
-  document.getElementById('compoundCalc').innerText = `$${(cap * 0.10).toFixed(0)} → $${(cap * 0.20).toFixed(0)} → $${(cap * 0.30).toFixed(0)}`;
+  document.getElementById('calcPassive').innerText = `$${(cap * 0.05).toFixed(2)} - $${(cap * 0.10).toFixed(2)}`;
+  document.getElementById('calcCompound').innerText = `$${(cap * 0.10).toFixed(0)} → $${(cap * 0.20).toFixed(0)} → $${(cap * 0.30).toFixed(0)}`;
 }
 
 function showAuthModal(mode) {
@@ -312,7 +384,7 @@ async function handleAuthSubmit(event) {
   const fullName = document.getElementById('fullName').value.trim();
 
   submitBtn.disabled = true;
-  submitBtn.innerText = 'Authenticating...';
+  submitBtn.innerText = 'Connecting...';
   errorBox.style.display = 'none';
 
   const endpoint = authMode === 'register' ? '/api/auth/register' : '/api/auth/login';
@@ -326,10 +398,12 @@ async function handleAuthSubmit(event) {
     });
     
     const data = await res.json();
-    if (!res.ok) throw new Error(data.detail || data.message || 'Authentication error.');
+    if (!res.ok) throw new Error(data.detail || data.message || 'Authentication failed');
 
-    currentUser = { email: email, name: fullName || email.split('@')[0] };
+    currentUser = data.user;
+    localStorage.setItem('so_token', data.access_token);
     localStorage.setItem('so_user', JSON.stringify(currentUser));
+    
     updateUserNav();
     showSection('dashboard');
   } catch (err) {
@@ -343,22 +417,25 @@ async function handleAuthSubmit(event) {
 
 function updateUserNav() {
   if (currentUser) {
-    document.getElementById('userNav').innerText = currentUser.email;
-    document.getElementById('userNav').style.display = 'inline';
+    document.getElementById('userNavDisplay').innerText = currentUser.email;
+    document.getElementById('userNavDisplay').style.display = 'inline';
     document.getElementById('navLoginBtn').style.display = 'none';
     document.getElementById('navRegBtn').style.display = 'none';
+    document.getElementById('navDashBtn').style.display = 'inline-flex';
     document.getElementById('navLogoutBtn').style.display = 'inline-flex';
-    document.getElementById('dashUserEmail').innerText = currentUser.email;
+    document.getElementById('dashUserEmail').innerText = `User: ${currentUser.email}`;
   } else {
-    document.getElementById('userNav').style.display = 'none';
+    document.getElementById('userNavDisplay').style.display = 'none';
     document.getElementById('navLoginBtn').style.display = 'inline-flex';
     document.getElementById('navRegBtn').style.display = 'inline-flex';
+    document.getElementById('navDashBtn').style.display = 'none';
     document.getElementById('navLogoutBtn').style.display = 'none';
   }
 }
 
 function handleLogout() {
   currentUser = null;
+  localStorage.removeItem('so_token');
   localStorage.removeItem('so_user');
   updateUserNav();
   showSection('home');
@@ -373,7 +450,6 @@ function selectPlan(planName) {
   showSection('dashboard');
 }
 
-// Initial state load
 const savedUser = localStorage.getItem('so_user');
 if (savedUser) {
   try {
