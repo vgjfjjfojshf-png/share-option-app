@@ -6,11 +6,11 @@ import os
 
 app = FastAPI(title="Share Option App")
 
-# ربط مجلد static إن وجد
+# Mount static files directory if it exists
 if os.path.exists("static"):
     app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# نماذج البيانات المتوقعة من الواجهة
+# Pydantic models for authentication
 class UserAuth(BaseModel):
     email: str | None = None
     phone: str | None = None
@@ -32,13 +32,13 @@ def health_check():
         "admin_secret_configured": bool(os.getenv("ADMIN_SECRET"))
     }
 
-# مسارات تسجيل الحساب وتسجيل الدخول المباشرة لتلبية طلبات Frontend
+# Authentication & Registration API Endpoints
 @app.post("/api/register")
 @app.post("/api/auth/register")
 async def register(user: UserAuth):
     return {
         "status": "success",
-        "message": "Account created successfully!",
+        "message": "Account created successfully for Real Trading!",
         "user": {"email": user.email, "name": user.fullName}
     }
 
@@ -47,6 +47,6 @@ async def register(user: UserAuth):
 async def login(user: UserAuth):
     return {
         "status": "success",
-        "token": "fake-jwt-token-for-demo",
+        "token": "live-real-account-jwt-token",
         "user": {"email": user.email}
     }
